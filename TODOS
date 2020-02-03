@@ -13,3 +13,5 @@ Criar um gerenciamento de usuario e contas
 
 Implementar esquema de proxy randomico
 Fazer documentação da api no README.md
+
+Corrigir o uso do default do hitTime
