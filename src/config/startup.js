@@ -10,7 +10,7 @@ const initBrowser = async () => {
             args: [
                 '--no-sandbox', 
                 '--disable-setuid-sandbox',
-                '--proxy-server=http://189.84.48.122:8080'
+                // '--proxy-server=http://5.196.255.171:3128'
             ]
         });
     console.info('Browser inicializado')
