@@ -1,0 +1,37 @@
+{
+  "name": "notify-api",
+  "version": "1.1.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/achimid/scraper-jquery-api.git"
+  },
+  "author": "achimid",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/achimid/scraper-jquery-api/issues"
+  },
+  "homepage": "https://github.com/achimid/scraper-jquery-api#readme",
+  "dependencies": {
+    "chalk": "^3.0.0",
+    "compression": "^1.7.4",
+    "dotenv": "^8.2.0",
+    "errorhandler": "^1.5.1",
+    "express": "^4.17.1",
+    "express-status-monitor": "^1.2.8",
+    "express-validator": "^6.1.0",
+    "http-status-codes": "^1.4.0",
+    "memory-cache": "^0.2.0",
+    "mongoose": "^5.8.7",
+    "node-cron": "^2.0.3",
+    "node-fetch": "^2.6.0",
+    "node-telegram-bot-api": "^0.40.0",
+    "nodemailer": "^6.4.2",
+    "puppeteer": "^2.0.0",
+    "string-template": "^1.0.0"
+  }
+}

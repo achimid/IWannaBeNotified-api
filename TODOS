@@ -1,0 +1,15 @@
+implementar integração por webhook
+endpoint de edição e busca de site-requests
+
+Criar um frontend para cadatro dos sites
+    Criar um pré-cadastro de sites e scripts para selecionar
+
+Criar um gerenciamento de usuario e contas
+    deve ser possivel configurar os dados de integrações dentro das contas 
+    Possivel informar o token do telegram bot
+        Fazer um fallback para enviar para o bot de teste por padrão
+    Possivel informar o login e senha do gmail de disparo de e-mail
+        Fazer um tratamaento para quando da erro nas integrações
+
+Implementar esquema de proxy randomico
+Fazer documentação da api no README.md
