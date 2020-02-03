@@ -1,21 +1,22 @@
 {
-  "name": "notify-api",
-  "version": "1.1.0",
+  "name": "web-page-notify-api",
+  "version": "0.0.1",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node src/index.js"
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/achimid/scraper-jquery-api.git"
+    "url": "git+https://github.com/achimid/web-page-notify-api.git"
   },
   "author": "achimid",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/achimid/scraper-jquery-api/issues"
+    "url": "https://github.com/achimid/web-page-notify-api/issues"
   },
-  "homepage": "https://github.com/achimid/scraper-jquery-api#readme",
+  "homepage": "https://github.com/achimid/web-page-notify-api#readme",
   "dependencies": {
     "chalk": "^3.0.0",
     "compression": "^1.7.4",
