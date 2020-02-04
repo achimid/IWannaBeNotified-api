@@ -19,7 +19,7 @@ const schema = mongoose.Schema({
     language_code: { 
         type: mongoose.SchemaTypes.String
     },
-}, { versionKey: false, timestamps: { createdAt, updatedAt } })
+}, { versionKey: false, timestamps: true })
 
 const TelegramUser = mongoose.model("telegram-user", schema)
 module.exports = TelegramUser;

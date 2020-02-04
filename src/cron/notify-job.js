@@ -77,11 +77,11 @@ const initSchedulesRequests = () => {
     return SiteRequestModel.find()
     .then(requests => requests.map(req => {
         console.info(`Starting job for ${req.url} runing each ${req.options.hitTime} minute`)
-        return executeSiteRequests(req)
+        executeSiteRequests(req)
         
-        // return schedule(() => {
-        //     return executeSiteRequests(req)
-        // },`*/${req.options.hitTime} * * * *` )
+        return schedule(() => {
+            return executeSiteRequests(req)
+        },`*/${req.options.hitTime} * * * *` )
         
         // },`*/15 * * * * *` ) // TODO: Remover
 
