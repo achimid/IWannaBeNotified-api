@@ -48,10 +48,13 @@ const schema = mongoose.Schema({
         }],
         errorMessage: {
             type: mongoose.SchemaTypes.String
+        },
+        createdAt: {
+            type: mongoose.SchemaTypes.Date
         }
     }
         
-}, { versionKey: false, timestamps: { createdAt: 'created_at', updatedAt: 'updated_at' } })
+}, { versionKey: false, timestamps: { createdAt , updatedAt }})
 
 const SiteRequest = mongoose.model("site-request", schema)
 module.exports = SiteRequest

@@ -7,7 +7,10 @@ const { execute } = require('../site-execution/se-service')
 const { templateFormat } = require('../utils/template-engine')
 
 const parseUpdateData = (exect) => {
-    const updateData = { isSuccess: exect.isSuccess}
+    const updateData = { 
+        isSuccess: exect.isSuccess,
+        createdAt: exect.createdAt
+    }
 
     if (exect.isSuccess) {
         updateData.hashTarget = exect.hashTarget
@@ -56,15 +59,14 @@ const validateAndNotify = async (req, exect) => {
 
 const executeSiteRequests = (req) => execute(req)
     .then(async (exect) => {
-        if (!exect.isSuccess) return
-        
         const hashChanged = req.lastExecution.hashTarget != exect.hashTarget
 
         // Copy execution into requisition.lastExecution
         Object.assign(req, { lastExecution: parseUpdateData(exect) })
         req.lastExecution.hashChanged = hashChanged
 
-        await validateAndNotify(req, exect)
+        if (exect.isSuccess)
+            await validateAndNotify(req, exect)
 
         return req.save()    
     })
@@ -75,11 +77,11 @@ const initSchedulesRequests = () => {
     return SiteRequestModel.find()
     .then(requests => requests.map(req => {
         console.info(`Starting job for ${req.url} runing each ${req.options.hitTime} minute`)
-        // return executeSiteRequests(req)
+        return executeSiteRequests(req)
         
-        return schedule(() => {
-            return executeSiteRequests(req)
-        },`*/${req.options.hitTime} * * * *` )
+        // return schedule(() => {
+        //     return executeSiteRequests(req)
+        // },`*/${req.options.hitTime} * * * *` )
         
         // },`*/15 * * * * *` ) // TODO: Remover
 

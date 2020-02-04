@@ -19,7 +19,7 @@ const schema = mongoose.Schema({
     is_bot: { 
         type: mongoose.SchemaTypes.Boolean
     }
-}, { versionKey: false, timestamps: { createdAt: 'created_at', updatedAt: 'updated_at' } })
+}, { versionKey: false, timestamps: { createdAt, updatedAt } })
 
 const TelegramChat = mongoose.model("telegram-chat", schema)
 module.exports = TelegramChat

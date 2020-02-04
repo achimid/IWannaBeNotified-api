@@ -36,7 +36,7 @@ const schema = mongoose.Schema({
     errorMessage: {
         type: mongoose.SchemaTypes.String
     }
-}, { versionKey: false, timestamps: { createdAt: 'created_at', updatedAt: 'updated_at' } })
+}, { versionKey: false, timestamps: { createdAt , updatedAt } })
 
 const SiteExecution = mongoose.model("site-execution", schema)
 module.exports = SiteExecution
