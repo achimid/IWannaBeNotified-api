@@ -45,12 +45,8 @@ const execute = async (req) => {
 
     try {
 
-        console.log(await global.browser.userAgent())
-
-        // console.info('Setting user-agent')
-        // const userAgent = await RandomHttpUserAgent.get()
-        // console.log('userAAAA', userAgent)
-        // await page.setUserAgent(userAgent);
+        console.info('Setting user-agent')
+        await page.setUserAgent(await RandomHttpUserAgent.get());
 
         console.info('Navegando para Url', url)
         await page.goto(url, { waitUntil: 'networkidle0' })
