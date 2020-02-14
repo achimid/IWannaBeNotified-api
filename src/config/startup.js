@@ -7,7 +7,7 @@ const notifyJobInit = require('../cron/notify-job')
 const { telegramStartup } = require('../notification/telegram/telegram')
 
 puppeteer.use(stealthPlugin())
-puppeteer.use(adblockerPlugin())
+puppeteer.use(adblockerPlugin({ blockTrackers: true }))
 
 const initBrowser = async () => {
     console.info('Inicializando browser......')
@@ -27,7 +27,7 @@ const initBrowser = async () => {
 
 module.exports = () => {
     initBrowser()
-    databaseInit()
-    notifyJobInit()
-    telegramStartup()
+        .then(databaseInit)
+        .then(notifyJobInit)
+        .then(telegramStartup)
 }
