@@ -1,5 +1,6 @@
 const SiteExecutionModel = require('./se-model')
 const crypto = require('crypto');
+const fetch = require('node-fetch');
 
 const toMD5 = (data) => crypto.createHash('md5').update(JSON.stringify({data})).digest("hex")
 
@@ -19,12 +20,15 @@ const getPromissesEvaluation = (artifact, script) => {
     return promisses
 }
 
-const retryIframe = async (page, {scriptTarget, script}) => {
-    for (const frame of page.mainFrame().childFrames()){
-        return Promise.all(getPromissesEvaluation(frame, script))
-    }
-    return
+const retryFetch = (page, url) => fetch(url)
+    .then(res => res.text())
+    .then((content) => page.setContent(content));
+
+const applyOptionsConfig = async (page, options) => {
+    if (options.useJquery) await page.addScriptTag({ url: process.env.JQUERY_URL_INJECTION })
+    if (options.waitTime) await page.waitFor(options.waitTime)
 }
+
 
 const execute = async (req) => {
     const { url, scriptTarget, scriptContent, options }  = req
@@ -41,8 +45,7 @@ const execute = async (req) => {
         console.info('Navegando para Url', url)
         await page.goto(url, { waitUntil: 'networkidle0' })
 
-        if (options.useJquery) await page.addScriptTag({ url: process.env.JQUERY_URL_INJECTION })
-        if (options.waitTime) await page.waitFor(options.waitTime)
+        await applyOptionsConfig(page, options)
 
         console.info('Executando script')
         
@@ -52,10 +55,19 @@ const execute = async (req) => {
         console.info('Retorno do script target', url, responseTarget)
         console.info('Retorno do script content', url, responseContent)
 
-        if (!responseTarget) {            
-            [responseTarget] = await retryIframe(page, scriptTarget)
-            responseContent = await retryIframe(page, scriptContent)
+        if (!responseTarget) { 
+            console.info('Retentativa utilizando Fetch API')
+
+            await retryFetch(page, url);
+            await applyOptionsConfig(page, options);
+
+            [responseTarget] = await Promise.all(getPromissesEvaluation(page, scriptTarget))
+            responseContent = await Promise.all(getPromissesEvaluation(page, scriptContent))
         }
+
+        console.info('Retorno do script target', url, responseTarget)
+        console.info('Retorno do script content', url, responseContent)
+
 
         if (!responseTarget) {
             throw `Inválid response target: ${url} ==> ${responseTarget}`

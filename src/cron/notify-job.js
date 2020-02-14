@@ -37,7 +37,6 @@ const notifyChannels = (site) => {
     }))
 }
 
-
 const countHash = (req, exect) => SiteExecutionModel.countDocuments({url: req.url, hashTarget: req.lastExecution.hashTarget, _id: { $ne: exect._id}})
 
 const validateAndNotify = async (req, exect) => {
