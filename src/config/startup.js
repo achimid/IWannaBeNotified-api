@@ -9,8 +9,10 @@ const { telegramStartup } = require('../notification/telegram/telegram')
 puppeteer.use(stealthPlugin())
 puppeteer.use(adblockerPlugin({ blockTrackers: true }))
 
+const dfUserAg = process.env.DEFAULT_USER_AGENT
+
 const initBrowser = async () => {
-    console.info('Inicializando browser......')
+    console.info('Inicializando browser......')    
     global.browser = await puppeteer.launch(
         {
             args: [
@@ -19,7 +21,7 @@ const initBrowser = async () => {
                 '--disable-infobars',
                 '--ignore-certifcate-errors',
                 '--ignore-certifcate-errors-spki-list',
-                `--user-agent="${process.env.DEFAULT_USER_AGENT}"`,
+                dfUserAg != '' ? `--user-agent="${dfUserAg}"`: '',
                 // '--proxy-server=https://116.196.85.150:3128'
             ]
         });
