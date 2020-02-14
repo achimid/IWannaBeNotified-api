@@ -57,9 +57,14 @@ const execute = async (req) => {
 
         console.info('Executando script')
         
-        let [responseTarget] = await Promise.all(getPromissesEvaluation(page, scriptTarget))
-        let responseContent = await Promise.all(getPromissesEvaluation(page, scriptContent))
-        
+        let responseTarget = null
+        let responseContent = null
+        let errorExec = null
+        try {
+            [responseTarget] = await Promise.all(getPromissesEvaluation(page, scriptTarget))
+            responseContent = await Promise.all(getPromissesEvaluation(page, scriptContent))
+        } catch (error) { errorExec = error }
+
         if (!responseTarget) { 
             console.info('Retentativa utilizando Fetch API')
 
@@ -75,6 +80,7 @@ const execute = async (req) => {
 
 
         if (!responseTarget) {
+            if (!errorExec) throw errorExec
             throw `Inválid response target: ${url} ==> ${responseTarget}`
         }
 
