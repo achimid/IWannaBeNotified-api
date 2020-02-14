@@ -1,8 +1,11 @@
 const schedule = require('./cron')
 const SiteRequestModel = require('../site-request/sr-model')
 const SiteExecutionModel = require('../site-execution/se-model')
-const Telegram = require('../notification/telegram/telegram')
+
+const TelegramDispatcher = require('../notification/telegram/telegram')
 const EmailDispatcher = require('../notification/email/email-dispatcher')
+const WebHookDispatcher = require('../notification/webhook/webhook-dispatcher')
+
 const { execute } = require('../site-execution/se-service')
 const { templateFormat } = require('../utils/template-engine')
 
@@ -25,13 +28,16 @@ const parseUpdateData = (exect) => {
 
 
 const notifyChannels = (site) => {
-    return Promise.all(site.notification.map(notf => {
-        const message = templateFormat(site, notf.template)
+    return Promise.all(site.notification.map(notf => {        
 
         if (notf.telegram) {
-            return Telegram.notifyAll(message)
+            const message = templateFormat(site, notf.template)
+            return TelegramDispatcher.notifyAll(message)
         } else if (notf.email) {
+            const message = templateFormat(site, notf.template)
             return EmailDispatcher.sendEMail(notf.email, message)
+        } else if (notf.webhook) {
+            return WebHookDispatcher.send(notf.webhook, site)
         }
         
     }))
