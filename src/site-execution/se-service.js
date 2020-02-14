@@ -1,6 +1,9 @@
+const RandomHttpUserAgent = require('random-http-useragent')
 const SiteExecutionModel = require('./se-model')
 const crypto = require('crypto');
 const fetch = require('node-fetch');
+ 
+
 
 const toMD5 = (data) => crypto.createHash('md5').update(JSON.stringify({data})).digest("hex")
 
@@ -41,6 +44,10 @@ const execute = async (req) => {
     const page = await global.browser.newPage();
 
     try {
+
+        console.info('Setting user-agent')
+        const userAgent = await RandomHttpUserAgent.get()
+        await page.setUserAgent(userAgent);
 
         console.info('Navegando para Url', url)
         await page.goto(url, { waitUntil: 'networkidle0' })
