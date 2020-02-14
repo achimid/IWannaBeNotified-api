@@ -45,8 +45,10 @@ const execute = async (req) => {
 
     try {
 
-        console.info('Setting user-agent')
-        await page.setUserAgent(await RandomHttpUserAgent.get());
+        if (process.env.ENABLE_USER_AGENT_RANDOM == 'true') {
+            console.info('Setting user-agent')
+            await page.setUserAgent(await RandomHttpUserAgent.get());
+        }
 
         console.info('Navegando para Url', url)
         await page.goto(url, { waitUntil: 'networkidle0' })
@@ -58,9 +60,6 @@ const execute = async (req) => {
         let [responseTarget] = await Promise.all(getPromissesEvaluation(page, scriptTarget))
         let responseContent = await Promise.all(getPromissesEvaluation(page, scriptContent))
         
-        console.info('Retorno do script target', url, responseTarget)
-        console.info('Retorno do script content', url, responseContent)
-
         if (!responseTarget) { 
             console.info('Retentativa utilizando Fetch API')
 

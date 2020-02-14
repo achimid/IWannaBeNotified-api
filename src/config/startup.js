@@ -19,12 +19,14 @@ const initBrowser = async () => {
                 '--disable-infobars',
                 '--ignore-certifcate-errors',
                 '--ignore-certifcate-errors-spki-list',
-                '--user-agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/80.0.3987.0 Safari/537.36"'
-                // '--proxy-server=http://5.196.255.171:3128'
+                `--user-agent="${process.env.DEFAULT_USER_AGENT}"`,
+                // '--proxy-server=https://116.196.85.150:3128'
             ]
         });
     console.info('Browser inicializado')
 }
+
+console.log(process.env.DEFAULT_USER_AGENT)
 
 module.exports = () => {
     initBrowser()
