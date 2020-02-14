@@ -78,9 +78,9 @@ const initSchedulesRequests = () => {
         console.info(`Starting job for ${req.url} runing each ${req.options.hitTime} minute`)
         executeSiteRequests(req)
         
-        // return schedule(() => {
-        //     return executeSiteRequests(req)
-        // },`*/${req.options.hitTime} * * * *` )
+        return schedule(() => {
+            return executeSiteRequests(req)
+        },`*/${req.options.hitTime} * * * *` )
         
         // },`*/15 * * * * *` ) // TODO: Remover
 
