@@ -12,8 +12,7 @@ Criar um gerenciamento de usuario e contas
 
 Fazer documentação da api no README.md
 
-criar um client para fazer o download
-    utilizar socketio no client
-    user o comando xdg-open 'magnet:?xt=urn:btih:OQKBNKGDMQSTN2CP7QJZF42P7G2KUHKC&tr=http://nyaa.tracker.wf:7777/announce&tr=udp://tracker.coppersurfer.tk:6969/announce&tr=udp://tracker.internetwarriors.net:1337/announce&tr=udp://tracker.leechersparadise.org:6969/announce&tr=udp://tracker.opentrackr.org:1337/announce&tr=udp://open.stealth.si:80/announce&tr=udp://p4p.arenabg.com:1337/announce&tr=udp://mgtracker.org:6969/announce&tr=udp://tracker.tiny-vps.com:6969/announce&tr=udp://peerfect.org:6969/announce&tr=http://share.camoe.cn:8080/announce&tr=http://t.nyaatracker.com:80/announce&tr=https://open.kickasstracker.com:443/announce'
-    Se nao der certo o comando criar um fallback
-    Começar a utilizar um pack de download 
+Colocar o Swagger no projeto
+
+Corrigir os campos de updated_at e created_at, os campos estão duplicados
+
