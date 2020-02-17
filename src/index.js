@@ -8,7 +8,7 @@ const statup = require('./config/startup')
 
 const app = express()
 const server = require('http').createServer(app)
-const socket = require('socket.io')(server)
+global.socket = require('socket.io')(server)
 
 app.use(monitor())
 app.use(compression())
@@ -22,13 +22,6 @@ const prefix = process.env.API_PREFIX
 require('./site-request/sr-controller')(prefix)(app)
 require('./site-execution/se-controller')(prefix)(app)
 require('./config/healthcheck')(prefix)(app)
-// ================
-
-
-// WebSocket registration
-// ================
-global.socket = socket // TODO: Melhorar esta parte
-require('./notification/websocket/websocket-interface')
 // ================
 
 statup()
