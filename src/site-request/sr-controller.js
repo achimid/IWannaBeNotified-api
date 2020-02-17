@@ -1,9 +1,9 @@
 const HttpStatus = require('http-status-codes');
 const { 
     create,
-    update
+    update,
+    findByQuery
  } = require('./sr-service')
-
 
 const createRequest = (req, res) => {
     return create(req.body)
@@ -17,7 +17,14 @@ const updateRequest = (req, res) => {
         .catch(error => res.send(error))
 }
 
+const getRequest = (req, res) => {    
+  return findByQuery(req.query)
+      .then(response => res.status(HttpStatus.OK).send(response))
+      .catch(error => res.send(error))
+}
+
 module.exports = (prefix) => (app) => {    
     app.post(`${prefix}/v1/notify`, createRequest)
     app.put(`${prefix}/v1/notify/:id`, updateRequest)
+    app.get(`${prefix}/v1/notify`, getRequest)
 }

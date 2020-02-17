@@ -56,10 +56,16 @@ const schema = mongoose.Schema({
         
 }, { versionKey: false, timestamps: true})
 
+schema.query.byQuery = function byQuery(params) {
+  return this.where(Object.assign(params, {
+    url: { $regex: params.url || '', $options: 'i' },
+    name: { $regex: params.name  || '', $options: 'i' }
+  }))
+}
+
 const SiteRequest = mongoose.model("site-request", schema)
+
 module.exports = SiteRequest
-
-
 
 /*
 {
