@@ -20,6 +20,7 @@ const schema = mongoose.Schema({
         onlyUnique: {type: mongoose.SchemaTypes.Boolean, default: process.env.OPTIONS_DEFAULT_ONLY_UNIQUE},
         useJquery: {type: mongoose.SchemaTypes.Boolean, default: process.env.OPTIONS_DEFAULT_USE_JQUERY},
         waitTime: {type: mongoose.SchemaTypes.Number, default: process.env.OPTIONS_DEFAULT_WAIT_TIME},
+        isDependency: {type: mongoose.SchemaTypes.Boolean, default: process.env.OPTIONS_DEFAULT_IS_DEPENDENCY},
     },
     notification: [{
         type: Object
@@ -52,6 +53,9 @@ const schema = mongoose.Schema({
         createdAt: {
             type: mongoose.SchemaTypes.Date
         }
+    },
+    then: {
+        siteRequestId: {type: schema}
     }
         
 }, { versionKey: false, timestamps: true})

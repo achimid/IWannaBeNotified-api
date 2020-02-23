@@ -24,5 +24,12 @@ require('./site-execution/se-controller')(prefix)(app)
 require('./config/healthcheck')(prefix)(app)
 // ================
 
+
+// WebSocket registration
+// ================
+global.socket = socket
+require('./notification/websocket/websocket')
+// ================
+
 statup()
 server.listen(process.env.PORT)
