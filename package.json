@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/achimid/web-page-notify-api#readme",
   "dependencies": {
+    "bcrypt": "^4.0.0",
     "chalk": "^3.0.0",
     "compression": "^1.7.4",
     "dotenv": "^8.2.0",
@@ -26,6 +27,8 @@
     "express-status-monitor": "^1.2.8",
     "express-validator": "^6.1.0",
     "http-status-codes": "^1.4.0",
+    "joi": "^14.3.1",
+    "jsonwebtoken": "^8.5.1",
     "memory-cache": "^0.2.0",
     "mongoose": "^5.8.7",
     "node-cron": "^2.0.3",

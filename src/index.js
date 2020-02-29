@@ -1,5 +1,10 @@
 require('dotenv').config()
 
+if (!process.env.PRIVATE_KEY) {
+    console.error("FATAL ERROR: PRIVATE_KEY is not defined.")
+    process.exit(1)
+}
+
 const express = require('express')
 const compression = require('compression')
 const errorhandler = require('errorhandler')
@@ -33,6 +38,12 @@ require('./config/healthcheck')(prefix)(app)
 // ================
 require('./notification/websocket/websocket')
 // ================
+
+const usersRoute = require("./user/user-controller")
+
+
+app.use("/api/users", usersRoute);
+
 
 statup()
 server.listen(process.env.PORT)
