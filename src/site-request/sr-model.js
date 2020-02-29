@@ -91,7 +91,8 @@ module.exports = SiteRequest
 		"hit_time": 5,
 		"only_changed": true,
 		"use_jquery": true,
-		"wait_time": 5000
+        "wait_time": 5000,
+        "isDependency": false
 	},
 	"notification": [
 		{
