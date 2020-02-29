@@ -4,11 +4,15 @@ const express = require('express')
 const compression = require('compression')
 const errorhandler = require('errorhandler')
 const monitor = require('express-status-monitor')
-const statup = require('./config/startup')
+
 
 const app = express()
 const server = require('http').createServer(app)
 global.socket = require('socket.io')(server)
+
+
+const statup = require('./config/startup')
+
 
 app.use(monitor())
 app.use(compression())
@@ -27,7 +31,6 @@ require('./config/healthcheck')(prefix)(app)
 
 // WebSocket registration
 // ================
-global.socket = socket
 require('./notification/websocket/websocket')
 // ================
 

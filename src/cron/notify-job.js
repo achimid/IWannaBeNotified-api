@@ -53,8 +53,9 @@ const notifyChannels = (site) => {
 const executeNextRequest = async (req) => {
     if (!req.then) return
 
-    return SiteExecutionModel.findById(req.then.siteRequestId)
-        .then(executeSiteRequests)    
+    console.info('Executando Request sequencial:', req.then.siteRequestId._id)
+    return SiteRequestModel.findById(req.then.siteRequestId._id)
+        .then(executeSiteRequests)
         .catch(() => console.error('SiteRequestId Inválido'))
 }
 
@@ -73,8 +74,8 @@ const validateAndNotify = async (req, exect) => {
             if (!isUnique) throw 'Hash not unique'
         }
 
-        await notifyChannels(req)
-        await executeNextRequest(req)
+        notifyChannels(req) // Async
+        executeNextRequest(req) // Async
     } catch (error) {
         console.info('Notification not sent: ', error)
     }            

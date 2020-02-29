@@ -4,9 +4,7 @@ const create = (data) => new SiteRequest(data).save()
 
 const update = (id, data) => SiteRequest.findByIdAndUpdate(id, data)
 
-const findByQuery = (params) => {
-  return SiteRequest.find().byQuery(params)
-}
+const findByQuery = (params) => SiteRequest.find()
 
 module.exports = {
     create,

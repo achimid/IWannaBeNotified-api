@@ -9,7 +9,8 @@ const schema = mongoose.Schema({
         type: mongoose.SchemaTypes.String
     },
     scriptTarget: {
-        type: mongoose.SchemaTypes.String
+        type: mongoose.SchemaTypes.String,
+        default: process.env.DEFAULT_JS_TARGET_SCRIPT
     },
     scriptContent: [{
         type: mongoose.SchemaTypes.String
@@ -55,17 +56,21 @@ const schema = mongoose.Schema({
         }
     },
     then: {
-        siteRequestId: {type: schema}
+        siteRequestId: {
+            type: mongoose.Schema.Types.ObjectId, ref: 'site-request'
+        }
     }
         
 }, { versionKey: false, timestamps: true})
 
-schema.query.byQuery = function byQuery(params) {
-  return this.where(Object.assign(params, {
-    url: { $regex: params.url || '', $options: 'i' },
-    name: { $regex: params.name  || '', $options: 'i' }
-  }))
-}
+
+// schema.query.byQuery = function byQuery(params) {
+//     return this.where(Object.assign(params, {
+//         url: { $regex: params.url || '', $options: 'i' },
+//         name: { $regex: params.name  || '', $options: 'i' }
+//     }))
+// }
+
 
 const SiteRequest = mongoose.model("site-request", schema)
 
