@@ -42,7 +42,7 @@ require('./notification/websocket/websocket')
 const usersRoute = require("./user/user-controller")
 
 
-app.use("/api/users", usersRoute);
+app.use("/api/v1/user", usersRoute);
 
 
 statup()
