@@ -5,7 +5,7 @@ const logPong = (json) => (json.status == 'ping') ? console.info('pong') : json
 
 const logErro = (err) => console.error('Healthcheck Fail', err)
 
-const pingUrl = process.env.API_URL + process.env.API_VERSION + process.env.API_PREFIX
+const pingUrl = process.env.API_URL + process.env.API_PREFIX + process.env.API_VERSION
 
 const fetchHealthCheck = fetch(pingUrl)
     .then(res => res.json())

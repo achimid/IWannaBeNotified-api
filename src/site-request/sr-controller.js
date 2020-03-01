@@ -1,30 +1,32 @@
 const HttpStatus = require('http-status-codes');
-const { 
-    create,
-    update,
-    findByQuery
- } = require('./sr-service')
+const express = require("express")
+const router = express.Router()
 
-const createRequest = (req, res) => {
-    return create(req.body)
-        .then(response => res.json(response))
-        .catch(error => res.send(error))
+const service = require('./sr-service')
+
+const sendError = error => {
+    console.log('Ocorreu um erro inesperado', error)
+    return res.send(error)
 }
 
-const updateRequest = (req, res) => {    
-    return update(req.params.id, req.body)
-        .then(() => res.status(HttpStatus.CREATED).send())
-        .catch(error => res.send(error))
-}
-
-const getRequest = (req, res) => {    
-  return findByQuery(req.query)
+router.get('/', async (req, res) => {    
+    service.findByQuery(req.query)
       .then(response => res.status(HttpStatus.OK).send(response))
-      .catch(error => res.send(error))
-}
+      .catch(sendError)
+})
 
-module.exports = (prefix) => (app) => {    
-    app.post(`${prefix}/v1/notify`, createRequest)
-    app.put(`${prefix}/v1/notify/:id`, updateRequest)
-    app.get(`${prefix}/v1/notify`, getRequest)
-}
+
+router.post('/', async (req, res) => {
+    service.create(req.body)
+        .then(response => res.status(HttpStatus.CREATED).json(response))
+        .catch(sendError)
+})
+
+
+router.put('/:id', async (req, res) => {    
+    service.update(req.params.id, req.body)
+        .then(() => res.status(HttpStatus.OK).send())
+        .catch(sendError)
+})
+
+module.exports = router
