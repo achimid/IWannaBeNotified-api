@@ -13,7 +13,7 @@ global.socket = require('socket.io')(server)
 
 const routes = require('./config/routes')
 const statup = require('./config/startup')
-const { account } = require('./middleware/authentication')
+const { account } = require('./middleware/auth-middleware')
 
 
 app.use(monitor())

@@ -2,7 +2,7 @@ const HttpStatus = require('http-status-codes');
 const express = require("express")
 const router = express.Router()
 
-const { auth } = require("../middleware/authentication")
+const { auth } = require("../middleware/auth-middleware")
 const secutiry = require("../utils/secutiry-util")
 
 
