@@ -1,4 +1,4 @@
-const { socket } = require('../../utils/socketUtil')
+const { socket } = require('../../utils/socket-util')
 
 const onConnection = (client) => {
     console.log('Client conectado...')

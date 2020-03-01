@@ -22,7 +22,8 @@ const initBrowser = async () => {
                 // '--proxy-server=https://116.196.85.150:3128'
             ]
         });
-    console.info('Browser inicializado')
+        
+    console.info('Browser inicializado...')
 }
 
 module.exports = initBrowser
