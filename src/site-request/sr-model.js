@@ -55,6 +55,9 @@ const schema = mongoose.Schema({
             type: mongoose.SchemaTypes.Date
         }
     },
+    userId: {
+        type: mongoose.Schema.Types.ObjectId, ref: 'site-request'
+    },
     then: {
         siteRequestId: {
             type: mongoose.Schema.Types.ObjectId, ref: 'site-request'

@@ -35,6 +35,9 @@ const schema = mongoose.Schema({
     },
     errorMessage: {
         type: mongoose.SchemaTypes.String
+    },
+    userId: {
+        type: mongoose.Schema.Types.ObjectId, ref: 'site-request'
     }
 }, { versionKey: false, timestamps: true })
 

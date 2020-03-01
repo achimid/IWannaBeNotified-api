@@ -2,6 +2,7 @@ const HttpStatus = require('http-status-codes');
 const express = require("express")
 const router = express.Router()
 
+const inUser = require('../middleware/user-middleware')
 const service = require('./sr-service')
 
 const sendError = error => {
@@ -9,14 +10,14 @@ const sendError = error => {
     return res.send(error)
 }
 
-router.get('/', async (req, res) => {    
+router.get('/', inUser, async (req, res) => {    
     service.findByQuery(req.query)
       .then(response => res.status(HttpStatus.OK).send(response))
       .catch(sendError)
 })
 
 
-router.post('/', async (req, res) => {
+router.post('/', inUser, async (req, res) => {
     service.create(req.body)
         .then(response => res.status(HttpStatus.CREATED).json(response))
         .catch(sendError)

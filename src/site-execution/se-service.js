@@ -33,11 +33,11 @@ const applyOptionsConfig = async (page, options) => {
 
 
 const execute = async (req) => {
-    const { url, scriptTarget, scriptContent, options }  = req
+    const { url, scriptTarget, scriptContent, options, userId }  = req
 
     const startTime = process.hrtime()
     
-    const execution = new SiteExecutionModel({ url, scriptTarget, scriptContent })
+    const execution = new SiteExecutionModel({ url, scriptTarget, scriptContent, userId })
 
     console.info('Criando nova pagina')
     const page = await global.browser.newPage();
