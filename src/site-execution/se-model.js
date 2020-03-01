@@ -37,7 +37,7 @@ const schema = mongoose.Schema({
         type: mongoose.SchemaTypes.String
     },
     userId: {
-        type: mongoose.Schema.Types.ObjectId, ref: 'site-request'
+        type: mongoose.Schema.Types.ObjectId, ref: 'user'
     }
 }, { versionKey: false, timestamps: true })
 

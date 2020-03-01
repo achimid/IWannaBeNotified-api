@@ -59,6 +59,6 @@ function validateLoginSchema(user) {
 	return Joi.validate(user, schema)
 }
 
-exports.UserModel = mongoose.model('User', UserSchema)
+exports.UserModel = mongoose.model('user', UserSchema)
 exports.validateUserModel = validateUserModel
 exports.validateLoginSchema = validateLoginSchema
