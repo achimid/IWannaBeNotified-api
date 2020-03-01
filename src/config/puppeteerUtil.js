@@ -8,7 +8,8 @@ puppeteer.use(adblockerPlugin({ blockTrackers: true }))
 const dfUserAg = process.env.DEFAULT_USER_AGENT
 
 const initBrowser = async () => {
-    console.info('Inicializando browser......')    
+    console.info('Inicializando browser...')    
+    
     global.browser = await puppeteer.launch(
         {
             args: [

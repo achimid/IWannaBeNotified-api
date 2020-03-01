@@ -1,11 +1,11 @@
-const schedule = require('./cron')
+const schedule = require('../utils/cron')
 const SiteRequestModel = require('../site-request/sr-model')
 const SiteExecutionModel = require('../site-execution/se-model')
 
-const TelegramDispatcher = require('../notification/telegram/telegram')
-const EmailDispatcher = require('../notification/email/email-dispatcher')
-const WebHookDispatcher = require('../notification/webhook/webhook-dispatcher')
-const WebSocketDispacher = require('../notification/websocket/websocket')
+const TelegramDispatcher = require('./telegram/telegram')
+const EmailDispatcher = require('./email/email-dispatcher')
+const WebHookDispatcher = require('./webhook/webhook-dispatcher')
+const WebSocketDispacher = require('./websocket/websocket')
 
 const { execute } = require('../site-execution/se-service')
 const { templateFormat } = require('../utils/template-engine')
@@ -93,8 +93,10 @@ const executeSiteRequests = (req) => execute(req)
         return req.save()    
     })
 
-const initSchedulesRequests = () => {    
+const initSchedulesRequests = () => {
     if (process.env.ENABLE_JOB !== 'true') return
+
+    console.info('Iniciando job de notificação...')
 
     return SiteRequestModel.find({'options.isDependency': { $ne: false}})
         .then(requests => requests.map(req => {

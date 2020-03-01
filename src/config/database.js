@@ -1,6 +1,8 @@
 const mongoose = require("mongoose");
 
 module.exports = () => {
+    console.info('Iniciando banco de dados...')
+
     mongoose.connect(process.env.MONGO_DB_CONNECTION, {
         useNewUrlParser: true,
         useUnifiedTopology: true,
@@ -11,9 +13,9 @@ module.exports = () => {
     const db = mongoose.connection
     
     db.on("error", () => {
-        console.log("Error occurred from the database");
+        console.error("Erro ao conextar no banco de dados...");
     })
     db.once("open", () => {
-        console.log("Database successfully connected");
+        console.info("Banco de dados conectado com sucesso...");
     })
 }

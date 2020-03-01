@@ -1,7 +1,7 @@
 const databaseInit = require('./database')
-const notifyJobInit = require('../cron/notify-job')
+const notifyJobInit = require('../notification/notify-job')
 const { telegramStartup } = require('../notification/telegram/telegram')
-const { socketInit } = require('./socketUtil')
+const { socketInit } = require('../utils/socketUtil')
 const initBrowser = require('./puppeteerUtil')
 const healthCheckJob = require('../healthcheck/healthcheck-job')
 

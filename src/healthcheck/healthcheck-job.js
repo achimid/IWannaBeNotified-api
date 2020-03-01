@@ -1,4 +1,4 @@
-const schedule = require('../cron/cron')
+const schedule = require('../utils/cron')
 const fetch = require('node-fetch');
 
 const logPong = (json) => (json.status == 'ping') ? console.info('pong') : json
@@ -12,5 +12,10 @@ const fetchHealthCheck = fetch(pingUrl)
     .then(logPong)
     .catch(logErro)
 
-module.exports = () => schedule(fetchHealthCheck)
+const init = () => {
+    console.info('Iniciando job de healthcheck...')
+    schedule(fetchHealthCheck)
+}
+
+module.exports = init
 

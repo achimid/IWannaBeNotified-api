@@ -1,4 +1,4 @@
-const socket = global.socket
+const { socket } = require('../../utils/socketUtil')
 
 const onConnection = (client) => {
     console.log('Client conectado...')
