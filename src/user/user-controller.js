@@ -1,6 +1,7 @@
 const auth = require("../utils/auth-middleware")
 const bcrypt = require("bcrypt")
-const router = require("express").Router()
+const express = require("express")
+const router = express.Router()
 
 const { UserModel, validateUserModel } = require("./user-model")
 

@@ -9,6 +9,7 @@ const express = require('express')
 const compression = require('compression')
 const errorhandler = require('errorhandler')
 const monitor = require('express-status-monitor')
+const routes = require('./config/routes')
 
 
 const app = express()
@@ -24,13 +25,14 @@ app.use(compression())
 app.use(express.json())
 app.use(errorhandler())
 
+// Endpoin routes registration
+routes(app)
 
 // Endpoin registration
 // ================
 const prefix = process.env.API_PREFIX
 require('./site-request/sr-controller')(prefix)(app)
 require('./site-execution/se-controller')(prefix)(app)
-require('./config/healthcheck')(prefix)(app)
 // ================
 
 
@@ -38,11 +40,6 @@ require('./config/healthcheck')(prefix)(app)
 // ================
 require('./notification/websocket/websocket')
 // ================
-
-const usersRoute = require("./user/user-controller")
-
-
-app.use("/api/v1/user", usersRoute);
 
 
 statup()

@@ -16,3 +16,5 @@ Colocar o Swagger no projeto
 
 Corrigir os campos de updated_at e created_at, os campos estão duplicados
 
+Trocar para utilizar rotas nos endpoints
+
