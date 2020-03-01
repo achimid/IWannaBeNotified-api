@@ -7,7 +7,7 @@ const logErro = (err) => console.error('Healthcheck Fail', err)
 
 const pingUrl = process.env.API_URL + process.env.API_PREFIX + process.env.API_VERSION
 
-const fetchHealthCheck = fetch(pingUrl)
+const fetchHealthCheck = () => fetch(pingUrl)
     .then(res => res.json())
     .then(logPong)
     .catch(logErro)
