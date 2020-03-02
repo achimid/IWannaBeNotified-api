@@ -94,7 +94,7 @@ const execute = async (req) => {
         execution.isSuccess = false
         execution.errorMessage = error
 
-        console.error(error)
+        console.error(`Erro ao executar request script, ${url}: `, error)
     }
 
     execution.executionTime = getExecutionTime(startTime)
