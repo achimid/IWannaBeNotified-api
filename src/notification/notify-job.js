@@ -100,11 +100,10 @@ const initSchedulesRequests = () => {
 
     return SiteRequestModel.find({'options.isDependency': { $ne: true}}).populate('userId').exec()
         .then(requests => requests.map(req => {
-            console.log(requests)
             console.info(`Starting job for ${req.url} runing each ${req.options.hitTime} minute`)
-            // executeSiteRequests(req)
+            executeSiteRequests(req)
             
-            // return schedule(() => { return executeSiteRequests(req) },`*/${req.options.hitTime} * * * *` )            
+            return schedule(() => { return executeSiteRequests(req) },`*/${req.options.hitTime} * * * *` )            
         }))
         .catch(() => console.log('errorrororo'))
 }
