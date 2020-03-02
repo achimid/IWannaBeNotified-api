@@ -4,7 +4,6 @@ const schedule = (callback, time) => new Promise((resolve, reject) => {
     cron.schedule(time || process.env.CRON_TIME_DEFAULT , () => {
         console.log('Iniciando execução do Job')
         try {
-            console.log('============>>>>>', callback)
             resolve(callback())
         } catch (error) {
             console.error('Erro ao executar o Job', error)
