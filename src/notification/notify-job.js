@@ -75,7 +75,7 @@ const validateAndNotify = async (req, exect) => {
         }
 
         notifyChannels(req) // Async
-        executeNextRequest(req) // Async
+        // executeNextRequest(req) // Async
     } catch (error) {
         console.info('Notification not sent: ', error)
     }            
