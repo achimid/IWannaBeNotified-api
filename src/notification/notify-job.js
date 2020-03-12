@@ -105,7 +105,7 @@ const initSchedulesRequests = () => {
             
             return schedule(() => { return executeSiteRequests(req) },`*/${req.options.hitTime} * * * *` )            
         }))
-        .catch(() => console.log('errorrororo'))
+        .catch(() => console.log('Erro ao inicializar SchedulesRequests'))
 }
     
 

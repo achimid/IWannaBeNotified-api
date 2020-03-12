@@ -2,22 +2,22 @@ const mongoose = require("mongoose")
 
 const schema = mongoose.Schema({
     id: { 
-        type: mongoose.SchemaTypes.Number, 
+        type: Number, 
         required: true,
         unique: true
     },
     first_name: { 
-        type: mongoose.SchemaTypes.String, 
+        type: String, 
         required: true
     },
     last_name: { 
-        type: mongoose.SchemaTypes.String
+        type: String
     },
     username: { 
-        type: mongoose.SchemaTypes.String
+        type: String
     },
     language_code: { 
-        type: mongoose.SchemaTypes.String
+        type: String
     },
 }, { versionKey: false, timestamps: true })
 

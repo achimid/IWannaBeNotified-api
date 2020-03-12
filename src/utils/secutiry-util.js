@@ -1,6 +1,6 @@
 const bcrypt = require("bcrypt")
 
-const hash = (value) => bcrypt.hash(value, process.env.HASH_SALT_KEY)
+const hash = (value) => bcrypt.hash(value, 50)
 
 module.exports = {
     hash

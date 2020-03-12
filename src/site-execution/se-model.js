@@ -2,39 +2,39 @@ const mongoose = require("mongoose")
 
 const schema = mongoose.Schema({
     url: { 
-        type: mongoose.SchemaTypes.String, 
+        type: String, 
         required: true
     },
     scriptTarget: { 
-        type: mongoose.SchemaTypes.String, 
+        type: String, 
         required: true 
     },
     scriptContent: [{ 
-        type: mongoose.SchemaTypes.String
+        type: String
     }],
     isSuccess: {
-        type: mongoose.SchemaTypes.Boolean
+        type: Boolean
     },
     isNotified: {
-        type: mongoose.SchemaTypes.Boolean
+        type: Boolean
     },
     hashTarget: {
-        type: mongoose.SchemaTypes.String
+        type: String
     },
     extractedTarget: {
-        type: mongoose.SchemaTypes.String
+        type: String
     },
     extractedContent: [{ 
         type: Object         
     }],
     executionTime: { 
-        type: mongoose.SchemaTypes.Number
+        type: Number
     },
     message: { 
-        type: mongoose.SchemaTypes.String
+        type: String
     },
     errorMessage: {
-        type: mongoose.SchemaTypes.String
+        type: String
     },
     userId: {
         type: mongoose.Schema.Types.ObjectId, ref: 'user'

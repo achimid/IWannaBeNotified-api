@@ -2,57 +2,57 @@ const mongoose = require("mongoose")
 
 const schema = mongoose.Schema({
     url: { 
-        type: mongoose.SchemaTypes.String,
+        type: String,
         required: true
     },
     name: { 
-        type: mongoose.SchemaTypes.String
+        type: String
     },
     scriptTarget: {
-        type: mongoose.SchemaTypes.String,
+        type: String,
         default: process.env.DEFAULT_JS_TARGET_SCRIPT
     },
     scriptContent: [{
-        type: mongoose.SchemaTypes.String
+        type: String
     }],
     options: {
-        hitTime: {type: mongoose.SchemaTypes.Number, default: process.env.OPTIONS_DEFAULT_HIT_TIME},
-        onlyChanged: {type: mongoose.SchemaTypes.Boolean, default: process.env.OPTIONS_DEFAULT_ONLY_CHANGED},
-        onlyUnique: {type: mongoose.SchemaTypes.Boolean, default: process.env.OPTIONS_DEFAULT_ONLY_UNIQUE},
-        useJquery: {type: mongoose.SchemaTypes.Boolean, default: process.env.OPTIONS_DEFAULT_USE_JQUERY},
-        waitTime: {type: mongoose.SchemaTypes.Number, default: process.env.OPTIONS_DEFAULT_WAIT_TIME},
-        isDependency: {type: mongoose.SchemaTypes.Boolean, default: process.env.OPTIONS_DEFAULT_IS_DEPENDENCY},
+        hitTime: {type: Number, default: process.env.OPTIONS_DEFAULT_HIT_TIME},
+        onlyChanged: {type: Boolean, default: process.env.OPTIONS_DEFAULT_ONLY_CHANGED},
+        onlyUnique: {type: Boolean, default: process.env.OPTIONS_DEFAULT_ONLY_UNIQUE},
+        useJquery: {type: Boolean, default: process.env.OPTIONS_DEFAULT_USE_JQUERY},
+        waitTime: {type: Number, default: process.env.OPTIONS_DEFAULT_WAIT_TIME},
+        isDependency: {type: Boolean, default: process.env.OPTIONS_DEFAULT_IS_DEPENDENCY},
     },
     notification: [{
         type: Object
     }],
     lastExecution: {
         message: { 
-            type: mongoose.SchemaTypes.String
+            type: String
         },
         scriptContent: { 
-            type: mongoose.SchemaTypes.String
+            type: String
         },
         isSuccess: {
-            type: mongoose.SchemaTypes.Boolean
+            type: Boolean
         },    
         hashTarget: {
-            type: mongoose.SchemaTypes.String
+            type: String
         },
         hashChanged: {
-            type: mongoose.SchemaTypes.Boolean
+            type: Boolean
         },
         extractedTarget: {
-            type: mongoose.SchemaTypes.String
+            type: String
         },
         extractedContent: [{ 
             type: Object
         }],
         errorMessage: {
-            type: mongoose.SchemaTypes.String
+            type: String
         },
         createdAt: {
-            type: mongoose.SchemaTypes.Date
+            type: Date
         }
     },
     userId: {
