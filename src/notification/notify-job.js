@@ -9,6 +9,7 @@ const WebSocketDispacher = require('./websocket/websocket')
 
 const { execute } = require('../site-execution/se-service')
 const { templateFormat } = require('../utils/template-engine')
+const { hasSimilarity } = require('../utils/text-search')
 
 
 const countHash = (req, exect) => SiteExecutionModel.countDocuments({url: req.url, hashTarget: req.lastExecution.hashTarget, _id: { $ne: exect._id}})
@@ -50,14 +51,14 @@ const notifyChannels = (site) => {
 }
 
 
-const executeNextRequest = async (req) => {
-    if (!req.then) return
+// const executeNextRequest = async (req) => {
+//     if (!req.then) return
 
-    console.info('Executando Request sequencial:', req.then.siteRequestId._id)
-    return SiteRequestModel.findById(req.then.siteRequestId._id)
-        .then(executeSiteRequests)
-        .catch(() => console.error('SiteRequestId Inválido'))
-}
+//     console.info('Executando Request sequencial:', req.then.siteRequestId._id)
+//     return SiteRequestModel.findById(req.then.siteRequestId._id)
+//         .then(executeSiteRequests)
+//         .catch(() => console.error('SiteRequestId Inválido'))
+// }
 
 
 const validateAndNotify = async (req, exect) => {
@@ -72,6 +73,12 @@ const validateAndNotify = async (req, exect) => {
         if (req.options.onlyUnique) {
             const isUnique = await countHash(req, exect) <= 0
             if (!isUnique) throw 'Hash not unique'
+        }
+
+        if (req.filter) {
+            if (!hasSimilarity(req.filter.word, req.filter.threshold)) {
+                throw 'Has no similarity with filters'
+            }
         }
 
         notifyChannels(req) // Async

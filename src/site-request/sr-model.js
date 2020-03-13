@@ -15,6 +15,12 @@ const schema = mongoose.Schema({
     scriptContent: [{
         type: String
     }],
+    filter: {
+        threshold: Number,
+        word: [{
+            type: String
+        }]
+    },
     options: {
         hitTime: {type: Number, default: process.env.OPTIONS_DEFAULT_HIT_TIME},
         onlyChanged: {type: Boolean, default: process.env.OPTIONS_DEFAULT_ONLY_CHANGED},
