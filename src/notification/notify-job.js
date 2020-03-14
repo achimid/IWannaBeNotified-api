@@ -34,6 +34,7 @@ const parseUpdateData = (exect) => {
 const getNotifications = (site) => {
     if (site.notifications.length) return site.notifications
     if (site.userId && site.userId.notifications.length) return site.userId.notifications
+    console.info('Nenhum canal de notificação encontrado', site.url)
     return []
 }
 

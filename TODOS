@@ -11,3 +11,431 @@ Colocar o Swagger no projeto
 Pensar am alguns esquema de adsense do google a cada request
 
 Remover dataDirCache a cada periodo de tempo....
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+==================================
+template: <a href="{url}">{name}</a>: {0}
+
+https: //www.animestc.com {
+    "_id": {
+        "$oid": "5e2cb9d81c9d44000071938a"
+    },
+    "options": {
+        "hitTime": {
+            "$numberInt": "5"
+        },
+        "onlyUnique": true,
+        "onlyChanged": false,
+        "useJquery": false,
+        "waitTime": {
+            "$numberInt": "0"
+        },
+        "isDependency": false
+    },
+    "scriptContent": [
+        "document.querySelector('.dados-down-epi > .titulo-down-epi').innerText.trim()",
+        "document.querySelectorAll('.dados-down-epi > .titulo-down-epi')[1].innerText.trim()",
+        "document.querySelectorAll('.dados-down-epi > .titulo-down-epi')[2].innerText.trim()",
+        "document.querySelectorAll('.dados-down-epi > .titulo-down-epi')[3].innerText.trim()",
+        "document.querySelectorAll('.dados-down-epi > .titulo-down-epi')[4].innerText.trim()"
+    ],
+    "notification": [
+        {
+            "telegram": {
+                "bot_token:": "1038340863:AAFmixa_WtcjlEbcGNAPvD-ArUBA7Kr-xUE",
+                "chat_id": [
+                    {
+                        "$numberInt": "123456789"
+                    }
+                ]
+            },
+            "template": "<a href=\"{url}\">{name}</a>: {0}"
+        },
+        {
+            "webhook": [
+                {
+                    "url": "http://localhost:9191/teste",
+                    "method": "GET"
+                },
+                {
+                    "url": "http://localhost:9191/teste",
+                    "method": "POST"
+                }
+            ]
+        }
+    ],
+    "url": "https://www.animestc.com",
+    "name": "AnimesTeleCine",
+    "scriptTarget": "document.querySelector('.dados-down-epi > .titulo-down-epi').innerText.trim()",
+    "created_at": {
+        "$date": {
+            "$numberLong": "1579893981863"
+        }
+    },
+    "updated_at": {
+        "$date": {
+            "$numberLong": "1580822706888"
+        }
+    },
+    "lastExecution": {
+        "isSuccess": true,
+        "createdAt": {
+            "$date": {
+                "$numberLong": "1584227112108"
+            }
+        },
+        "hashTarget": "86ee852a8e6f4a00776b7cb0ddeb8c19",
+        "extractedTarget": "Kabukichou Sherlock - Episódio 22",
+        "extractedContent": [
+            "Kabukichou Sherlock - Episódio 22",
+            "Fate/Grand Order: Zettai Majuu Sensen... - Episódio 20",
+            "Kyokou Suiri - Episódio 10",
+            "Boku no Tonari ni Ankoku Hakaishin ga... - Episódio 10",
+            "Boku no Hero Academia 4° Temporada - Episódio 22"
+        ],
+        "hashChanged": false
+    },
+    "createdAt": {
+        "$date": {
+            "$numberLong": "1580822905314"
+        }
+    },
+    "updatedAt": {
+        "$date": {
+            "$numberLong": "1584227112677"
+        }
+    },
+    "filter": {
+        "words": [
+            "Reviewers"
+        ],
+        "threshold": {
+            "$numberDouble": "0.01"
+        }
+    }
+}
+
+https: //horriblesubs.info {
+    "_id": {
+        "$oid": "5e2d925d71a5697d7135a55c"
+    },
+    "options": {
+        "hitTime": {
+            "$numberInt": "5"
+        },
+        "onlyChanged": false,
+        "onlyUnique": true,
+        "useJquery": true,
+        "waitTime": {
+            "$numberInt": "0"
+        },
+        "isDependency": false
+    },
+    "lastExecution": {
+        "isSuccess": true,
+        "createdAt": {
+            "$date": {
+                "$numberLong": "1584227109880"
+            }
+        },
+        "hashTarget": "1575bff154de9bc7fb3675136947070a",
+        "extractedTarget": "Kyokou Suiri - 10",
+        "extractedContent": [
+            "Kyokou Suiri - 10",
+            "Nanabun no Nijyuuni - 10",
+            "Magia Record - 11",
+            "Fate Grand Order - Absolute Demonic Front Babylonia - 20",
+            "Ishuzoku Reviewers - 10"
+        ],
+        "hashChanged": false
+    },
+    "scriptContent": [
+        "$('.latest-releases li').first().find('a').children().not('strong').remove().end().end().text()",
+        "$($('.latest-releases li')[1]).find('a').children().not('strong').remove().end().end().text()",
+        "$($('.latest-releases li')[2]).find('a').children().not('strong').remove().end().end().text()",
+        "$($('.latest-releases li')[3]).find('a').children().not('strong').remove().end().end().text()",
+        "$($('.latest-releases li')[4]).find('a').children().not('strong').remove().end().end().text()"
+    ],
+    "notification": [
+        {
+            "template": "<a href=\"{url}\">{name}</a>: {0}",
+            "telegram": "teste"
+        }
+    ],
+    "url": "https://horriblesubs.info",
+    "name": "HorribleSubs",
+    "scriptTarget": "$('.latest-releases li').first().find('a').children().not('strong').remove().end().end().text().trim()",
+    "created_at": {
+        "$date": {
+            "$numberLong": "1580044893645"
+        }
+    },
+    "updated_at": {
+        "$date": {
+            "$numberLong": "1580822708817"
+        }
+    },
+    "createdAt": {
+        "$date": {
+            "$numberLong": "1580822904181"
+        }
+    },
+    "updatedAt": {
+        "$date": {
+            "$numberLong": "1584227110416"
+        }
+    },
+    "filter": {
+        "words": [
+            "Reviewers"
+        ],
+        "threshold": {
+            "$numberDouble": "0.01"
+        }
+    }
+}
+
+https: //punchsubs.net/home {
+    "_id": {
+        "$oid": "5e2d9a663c5e8e0e12f0a1e7"
+    },
+    "options": {
+        "hitTime": {
+            "$numberInt": "10"
+        },
+        "onlyChanged": false,
+        "onlyUnique": true,
+        "useJquery": false,
+        "waitTime": {
+            "$numberInt": "0"
+        },
+        "isDependency": false
+    },
+    "lastExecution": {
+        "isSuccess": false,
+        "createdAt": {
+            "$date": {
+                "$numberLong": "1584226801196"
+            }
+        },
+        "errorMessage": "Error: Evaluation failed: TypeError: Cannot read property 'textContent' of null\n    at __puppeteer_evaluation_script__:1:32",
+        "hashChanged": false
+    },
+    "scriptContent": [
+        "document.querySelector('.projeto_title').innerText.trim() + ' - ' + document.querySelector('.numero').innerText.trim()",
+        "document.querySelectorAll('.projeto_title')[1].innerText.trim() + ' - ' + document.querySelectorAll('.numero')[1].innerText.trim()",
+        "document.querySelectorAll('.projeto_title')[2].innerText.trim() + ' - ' + document.querySelectorAll('.numero')[2].innerText.trim()",
+        "document.querySelectorAll('.projeto_title')[3].innerText.trim() + ' - ' + document.querySelectorAll('.numero')[3].innerText.trim()",
+        "document.querySelectorAll('.projeto_title')[4].innerText.trim() + ' - ' + document.querySelectorAll('.numero')[4].innerText.trim()",
+        "document.querySelectorAll('.projeto_title')[5].innerText.trim() + ' - ' + document.querySelectorAll('.numero')[5].innerText.trim()",
+        "document.querySelectorAll('.projeto_title')[6].innerText.trim() + ' - ' + document.querySelectorAll('.numero')[6].innerText.trim()",
+        "document.querySelectorAll('.projeto_title')[7].innerText.trim() + ' - ' + document.querySelectorAll('.numero')[7].innerText.trim()"
+    ],
+    "notification": [
+        {
+            "template": "<a href=\"{url}\">{name}</a>: {0}",
+            "telegram": "teste"
+        }
+    ],
+    "url": "https://punchsubs.net/home",
+    "name": "PunchSubs",
+    "scriptTarget": "document.querySelector('.card').textContent.trim().replace(/\\s+/g,' ').replace('Download', '')",
+    "created_at": {
+        "$date": {
+            "$numberLong": "1580046950772"
+        }
+    },
+    "updated_at": {
+        "$date": {
+            "$numberLong": "1580742630357"
+        }
+    },
+    "createdAt": {
+        "$date": {
+            "$numberLong": "1580822899717"
+        }
+    },
+    "updatedAt": {
+        "$date": {
+            "$numberLong": "1584226801420"
+        }
+    },
+    "filter": {
+        "words": [
+            "Reviewers"
+        ],
+        "threshold": {
+            "$numberDouble": "0.01"
+        }
+    }
+}
+
+https: //www.crunchyroll.com/pt-br {
+    "_id": {
+        "$oid": "5e2ddceb1c9d440000ef716a"
+    },
+    "options": {
+        "hitTime": {
+            "$numberInt": "10"
+        },
+        "onlyChanged": false,
+        "onlyUnique": true,
+        "useJquery": false,
+        "waitTime": {
+            "$numberInt": "0"
+        },
+        "isDependency": false
+    },
+    "lastExecution": {
+        "isSuccess": true,
+        "createdAt": {
+            "$date": {
+                "$numberLong": "1584226804938"
+            }
+        },
+        "hashTarget": "a3c7cca170d055e868d28a11ea86aaf0",
+        "extractedTarget": "In/Spectre - Episódio 9",
+        "extractedContent": [
+            "In/Spectre - Episódio 9",
+            "Uchitama?! Have you seen my Tama? - Episódio 6",
+            "Magia Record: Puella Magi Madoka Magica Side Story - Episódio 10",
+            "A Destructive God Sits Next to Me - Episódio 9",
+            "Welcome to Demon School! Iruma-kun - Episódio 23"
+        ],
+        "hashChanged": false
+    },
+    "scriptContent": [
+        "document.querySelector('.welcome-latest-videos a > span.series').innerText.trim() + ' - ' + document.querySelector('.welcome-latest-videos a > span.ordernum').innerText.trim()",
+        "document.querySelectorAll('.welcome-latest-videos a > span.series')[1].innerText.trim() + ' - ' + document.querySelectorAll('.welcome-latest-videos a > span.ordernum')[1].innerText.trim()",
+        "document.querySelectorAll('.welcome-latest-videos a > span.series')[2].innerText.trim() + ' - ' + document.querySelectorAll('.welcome-latest-videos a > span.ordernum')[2].innerText.trim()",
+        "document.querySelectorAll('.welcome-latest-videos a > span.series')[3].innerText.trim() + ' - ' + document.querySelectorAll('.welcome-latest-videos a > span.ordernum')[3].innerText.trim()",
+        "document.querySelectorAll('.welcome-latest-videos a > span.series')[4].innerText.trim() + ' - ' + document.querySelectorAll('.welcome-latest-videos a > span.ordernum')[4].innerText.trim()"
+    ],
+    "notification": [
+        {
+            "template": "<a href=\"{url}\">{name}</a>: {0}",
+            "telegram": "teste"
+        }
+    ],
+    "url": "https://www.crunchyroll.com/pt-br",
+    "name": "Crunchyroll",
+    "scriptTarget": "document.querySelector('.welcome-latest-videos a > span.series').innerText.trim() + ' - ' + document.querySelector('.welcome-latest-videos a > span.ordernum').innerText.trim()",
+    "created_at": {
+        "$date": {
+            "$numberLong": "1580046950772"
+        }
+    },
+    "updated_at": {
+        "$date": {
+            "$numberLong": "1580822708466"
+        }
+    },
+    "createdAt": {
+        "$date": {
+            "$numberLong": "1580822904208"
+        }
+    },
+    "updatedAt": {
+        "$date": {
+            "$numberLong": "1584226805478"
+        }
+    },
+    "filter": {
+        "words": [
+            "Reviewers"
+        ],
+        "threshold": {
+            "$numberDouble": "0.01"
+        }
+    }
+}
+
+https: //www.superanimes.org/ {
+    "_id": {
+        "$oid": "5e5bb33dfc3c6610402a0950"
+    },
+    "options": {
+        "hitTime": {
+            "$numberInt": "5"
+        },
+        "onlyChanged": true,
+        "onlyUnique": true,
+        "useJquery": false,
+        "waitTime": {
+            "$numberInt": "500"
+        },
+        "isDependency": false
+    },
+    "lastExecution": {
+        "isSuccess": true,
+        "createdAt": {
+            "$date": {
+                "$numberLong": "1584227103568"
+            }
+        },
+        "hashTarget": "cabbec40ebfd12161d11673ac03f8a9c",
+        "extractedTarget": "<div class=\"grid_image grid_image_list grid_image_horizontal\">\n                <a href=\"https://www.superanimes.org/anime/fate-grand-order-zettai-majuu-sensen-babylonia/4653563\" itemprop=\"url\">\n                    <img class=\"thumb_box thumb_anime lazyloaded\" data-src=\"https://4icdn.com/?src=img/video/4653563-medium.jpg&amp;h=160\" src=\"https://4icdn.com/?src=img/video/4653563-medium.jpg&amp;h=160\" alt=\"Fate/Grand Order: Zettai Majuu Sensen Babylonia\" itemprop=\"image\">                </a>\n                <div class=\"infoFloat\">23:52</div>\n                <div class=\"infoFloatBottom faixa14\" title=\"Classificação 14 anos\">20</div>\n            </div>\n            <h1 class=\"grid_title\" itemprop=\"name\"><a href=\"https://www.superanimes.org/anime/fate-grand-order-zettai-majuu-sensen-babylonia/4653563\" itemprop=\"url\">Fate/Grand Order: Zettai Majuu Sensen Babylonia</a></h1>\n            <ul class=\"grid_itens\">\n                <li>Episodio 20</li>\n            </ul>",
+        "extractedContent": [
+            "Fate/Grand Order: Zettai Majuu Sensen Babylonia - Episodio 20",
+            "Majutsushi Orphen Hagure Tabi - Episodio 10",
+            "Magia Record: Mahou Shoujo Madoka☆Magica Gaiden - Episodio 11",
+            "Kyokou Suiri - Episodio 10",
+            "Mao Mao: Heroes Of Pure Heart - Episodio 4"
+        ],
+        "hashChanged": false
+    },
+    "scriptTarget": "document.querySelector('.grid_box').innerHTML.trim()",
+    "scriptContent": [
+        "document.querySelector('.grid_box h1').innerText + ' - '+ document.querySelector('.grid_box ul').innerText",
+        "document.querySelectorAll('.grid_box h1')[1].innerText + ' - '+ document.querySelectorAll('.grid_box ul')[1].innerText",
+        "document.querySelectorAll('.grid_box h1')[2].innerText + ' - '+ document.querySelectorAll('.grid_box ul')[2].innerText",
+        "document.querySelectorAll('.grid_box h1')[3].innerText + ' - '+ document.querySelectorAll('.grid_box ul')[3].innerText",
+        "document.querySelectorAll('.grid_box h1')[4].innerText + ' - '+ document.querySelectorAll('.grid_box ul')[4].innerText"
+    ],
+    "notification": [
+        {
+            "template": "<a href=\"{url}\">{name}</a>: {0}",
+            "telegram": "teste"
+        }
+    ],
+    "url": "https://www.superanimes.org/",
+    "name": "Super Animes",
+    "userId": {
+        "$oid": "5e5ba619af80047a603bb866"
+    },
+    "createdAt": {
+        "$date": {
+            "$numberLong": "1583067965966"
+        }
+    },
+    "updatedAt": {
+        "$date": {
+            "$numberLong": "1584227103799"
+        }
+    },
+    "filter": {
+        "words": [
+            "Reviewers"
+        ],
+        "threshold": {
+            "$numberDouble": "0.01"
+        }
+    }
+}
