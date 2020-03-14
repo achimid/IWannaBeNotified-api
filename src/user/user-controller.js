@@ -4,6 +4,8 @@ const router = express.Router()
 
 const { auth } = require("../middleware/auth-middleware")
 const secutiry = require("../utils/secutiry-util")
+const service = require('./user-service')
+const inUser = require('../middleware/user-middleware')
 
 
 const { UserModel, validateUserModel, validateLoginSchema } = require("./user-model")
@@ -48,5 +50,13 @@ router.post("/", async (req, res) => {
     const token = user.generateAuthToken()
     res.json({token})
 })
+
+
+router.post('/:id/notifications', inUser, async (req, res) => {        
+    service.addNotification(req.params.id, req.body)
+      .then(() => res.status(HttpStatus.OK).send())
+      .catch(sendError(res))
+})
+
 
 module.exports = router

@@ -31,9 +31,15 @@ const parseUpdateData = (exect) => {
     return updateData    
 }
 
+const getNotifications = (site) => {
+    if (site.notifications.length) return site.notifications
+    if (site.userId && site.userId.notifications.length) return site.userId.notifications
+    return []
+}
 
 const notifyChannels = (site) => {
-    return Promise.all(site.notification.map(notf => {        
+    const notifications = getNotifications(site)
+    return Promise.all(notifications.map(notf => {        
 
         if (notf.telegram) {
             const message = templateFormat(site, notf.template)
@@ -110,7 +116,7 @@ const initSchedulesRequests = () => {
             console.info(`Starting job for ${req.url} runing each ${req.options.hitTime} minute`)
             executeSiteRequests(req)
             
-            return schedule(() => { return executeSiteRequests(req) },`*/${req.options.hitTime} * * * * *` )            
+            return schedule(() => { return executeSiteRequests(req) },`*/${req.options.hitTime} * * * *` )            
         }))
         .catch(() => console.log('Erro ao inicializar SchedulesRequests'))
 }

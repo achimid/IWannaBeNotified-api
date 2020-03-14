@@ -23,7 +23,26 @@ const UserSchema = new mongoose.Schema({
 		minlength: 3,
 		maxlength: 255
 	},
-	isAdmin: Boolean
+	isAdmin: Boolean,
+	notifications: [{ // Deve refletir o mesmo atributo em sr-mode.js
+
+		template: { _id: false, type: String },
+		email: [{ _id: false, type: String }],
+		sms: [{ _id: false, type: String }],
+
+		telegram: [{
+			_id: false,
+			bot_token: { type: String },
+			chat_id: { type: String },
+		}],
+
+		webhook: [{
+			_id: false,
+			url: { type: String },
+			method: { type: String }
+		}]
+
+	}]
 })
 
 

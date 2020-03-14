@@ -20,12 +20,10 @@ Corrigir de tellegram chat para telegramUser
 
 permitir que o usuario armazene as integrações de notificação
 
-Corrigir os campos de updated_at e created_at, os campos estão duplicados
-
-Implementar Navegação anonima do pupeteer
-
 Fazer a assosciação de uma request 
 
 Permitir associar as informações de notificação na conta do usuario e não somente no request.
 
 Pensar am alguns esquema de adsense do google a cada request
+
+Remover dataDirCache a cada periodo de tempo....

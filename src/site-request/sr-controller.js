@@ -27,11 +27,12 @@ router.put('/:id', async (req, res) => {
 })
 
 
-router.post('/execute/:id', async (req, res) => {        
+router.post('/:id/execute', async (req, res) => {        
     service.executeById(req.params.id)
       .then(response => res.status(HttpStatus.OK).send(response))
       .catch(sendError(res))
 })
+
 
 
 module.exports = router

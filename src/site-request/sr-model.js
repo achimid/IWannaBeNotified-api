@@ -29,9 +29,6 @@ const schema = mongoose.Schema({
         waitTime: {type: Number, default: process.env.OPTIONS_DEFAULT_WAIT_TIME},
         isDependency: {type: Boolean, default: process.env.OPTIONS_DEFAULT_IS_DEPENDENCY},
     },
-    notification: [{
-        type: Object
-    }],
     lastExecution: {
         message: { 
             type: String
@@ -68,7 +65,24 @@ const schema = mongoose.Schema({
         siteRequestId: {
             type: mongoose.Schema.Types.ObjectId, ref: 'site-request'
         }
-    }
+    },
+    notifications: [{ // Deve refletir o mesmo atributo em sr-mode.js
+        
+		template: { type: String },
+		email: [{ type: String }],
+		sms: [{ type: String }],
+
+		telegram: [{
+			bot_token: { type: String },
+			chat_id: { type: String },
+		}],
+
+		webhook: [{
+			url: { type: String },
+			method: { type: String }
+		}]
+
+	}]
         
 }, { versionKey: false, timestamps: true})
 
