@@ -17,7 +17,7 @@ const schema = mongoose.Schema({
     }],
     filter: {
         threshold: Number,
-        word: [{
+        words: [{
             type: String
         }]
     },

@@ -76,7 +76,7 @@ const validateAndNotify = async (req, exect) => {
         }
 
         if (req.filter) {
-            if (!hasSimilarity(req.filter.word, req.filter.threshold)) {
+            if (!hasSimilarity(exect.extractedTarget, req.filter.words, req.filter.threshold)) {
                 throw 'Has no similarity with filters'
             }
         }
