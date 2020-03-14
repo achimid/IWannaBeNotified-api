@@ -2,7 +2,6 @@ require('dotenv').config()
 
 const express = require('express')
 const compression = require('compression')
-const errorhandler = require('errorhandler')
 const monitor = require('express-status-monitor')
 
 const app = express()
@@ -17,7 +16,6 @@ const { account } = require('./middleware/auth-middleware')
 app.use(monitor())
 app.use(compression())
 app.use(express.json())
-app.use(errorhandler())
 app.use(account())
 
 routes(app)

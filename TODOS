@@ -24,11 +24,8 @@ Corrigir os campos de updated_at e created_at, os campos estão duplicados
 
 Implementar Navegação anonima do pupeteer
 
-Criar um banco para ambiente de teste
-Criar um telegram para ambiente de teste
-
 Fazer a assosciação de uma request 
 
 Permitir associar as informações de notificação na conta do usuario e não somente no request.
 
-Criar ambientes diferentes....
+Pensar am alguns esquema de adsense do google a cada request

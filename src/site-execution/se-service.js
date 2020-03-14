@@ -28,7 +28,7 @@ const retryFetch = (page, url) => fetch(url)
 
 const applyOptionsConfig = async (page, options) => {
     if (options.useJquery) await page.addScriptTag({ url: process.env.JQUERY_URL_INJECTION })
-    if (options.waitTime) await page.waitFor(options.waitTime)
+    if (options.waitTime) await page.waitFor(options.waitTime)    
 }
 
 

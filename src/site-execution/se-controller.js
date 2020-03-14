@@ -11,7 +11,6 @@ const executeRequest = (data, res) => {
         .catch(error => res.send(error))
 }
 
-
 router.get('/', inUser, async (req, res) => executeRequest(req.query, res))
 
 router.post('/', inUser, async (req, res) => executeRequest(req.body, res))

@@ -75,7 +75,7 @@ const validateAndNotify = async (req, exect) => {
             if (!isUnique) throw 'Hash not unique'
         }
 
-        if (req.filter) {
+        if (req.filter && req.filter.words && req.filter.words.length > 0) {
             if (!hasSimilarity(exect.extractedTarget, req.filter.words, req.filter.threshold)) {
                 throw 'Has no similarity with filters'
             }
@@ -110,7 +110,7 @@ const initSchedulesRequests = () => {
             console.info(`Starting job for ${req.url} runing each ${req.options.hitTime} minute`)
             executeSiteRequests(req)
             
-            return schedule(() => { return executeSiteRequests(req) },`*/${req.options.hitTime} * * * *` )            
+            return schedule(() => { return executeSiteRequests(req) },`*/${req.options.hitTime} * * * * *` )            
         }))
         .catch(() => console.log('Erro ao inicializar SchedulesRequests'))
 }

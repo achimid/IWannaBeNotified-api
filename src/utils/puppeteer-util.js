@@ -20,8 +20,9 @@ const initBrowser = async () => {
                 '--ignore-certifcate-errors-spki-list',
                 dfUserAg != '' ? `--user-agent="${dfUserAg}"`: '',
                 // '--proxy-server=https://116.196.85.150:3128'
-            ]
-        });
+            ],
+            userDataDir: '/tmp/pp'
+        })
         
     console.info('Browser inicializado...')
 }
