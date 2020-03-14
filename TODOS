@@ -4,25 +4,9 @@ endpoint de listagem de site-requests
 Criar um frontend para cadatro dos sites
     Criar um pré-cadastro de sites e scripts para selecionar
 
-Criar um gerenciamento de usuario e contas
-    deve ser possivel configurar os dados de integrações dentro das contas 
-    Possivel informar o token do telegram bot
-        Fazer um fallback para enviar para o bot de teste por padrão
-    Possivel informar o login e senha do gmail de disparo de e-mail
-        Fazer um tratamaento para quando da erro nas integrações
-
 Fazer documentação da api no README.md
 
 Colocar o Swagger no projeto
-
-converter informações de usuarioTelegram para o usuario
-Corrigir de tellegram chat para telegramUser
-
-permitir que o usuario armazene as integrações de notificação
-
-Fazer a assosciação de uma request 
-
-Permitir associar as informações de notificação na conta do usuario e não somente no request.
 
 Pensar am alguns esquema de adsense do google a cada request
 

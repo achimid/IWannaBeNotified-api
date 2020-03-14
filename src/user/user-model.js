@@ -24,6 +24,7 @@ const UserSchema = new mongoose.Schema({
 		maxlength: 255
 	},
 	isAdmin: Boolean,
+	telegram_chat_id: { type: Number },
 	notifications: [{ // Deve refletir o mesmo atributo em sr-mode.js
 
 		template: { _id: false, type: String },

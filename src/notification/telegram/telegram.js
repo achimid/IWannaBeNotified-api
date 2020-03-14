@@ -1,5 +1,6 @@
 const TelegramBot = require('node-telegram-bot-api')
 const TelegramChatModel = require('./telegram-chat-model')
+const UserService = require('../../user/user-service')
 
 const bot = new TelegramBot(process.env.TELEGRAM_TOKEN, {polling: true})
 
@@ -23,7 +24,19 @@ const telegramStartup = () => {
                /notify_all_start - Receber notificações sobre todos os lançamentos
             \n /notify_all_stop  - Parar de receber notificações sobre todos os lançamentos
         `.trim()
-        bot.sendMessage(chat.id, comands)        
+        bot.sendMessage(chat.id, comands)
+    })
+
+    bot.onText(/^\/associate/, async (msg) => {
+        const email = msg.text.replace('/associate', '').trim()
+        const tUser = await TelegramChatModel.findOne({id: msg.chat.id})
+        const isSuccess = await UserService.associateTelegramUser(email, tUser)
+        
+        if (isSuccess) {
+            bot.sendMessage(msg.chat.id, "Telegram vinculado a sua conta de usuário com sucesso!")
+        } else {
+            bot.sendMessage(msg.chat.id, "Email não encontrado!")
+        }
     })
     
 }
