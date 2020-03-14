@@ -22,9 +22,14 @@ const findSimilarity = (fullText, wordsSearch, threshold = 0.1) => {
 }
 
 const hasSimilarity = (fullText, wordsSearch, threshold) => 
-    findSimilarity(fullText, wordsSearch, threshold).length
+    findSimilarity(fullText, wordsSearch, threshold).length > 0
 
-module.exports = {
-    findSimilarity,
-    hasSimilarity
-}
+// module.exports = {
+//     findSimilarity,
+//     hasSimilarity
+// }
+
+resp = hasSimilarity("Lourran Olimpio Zorzi", ['Lourran', 'Olimpio', 'Maria'])
+
+console.log(resp)
+console.log(resp == true)
