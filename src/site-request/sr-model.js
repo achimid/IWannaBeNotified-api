@@ -72,10 +72,10 @@ const schema = mongoose.Schema({
 		email: [{ type: String }],
 		sms: [{ type: String }],
 
-		telegram: [{
+		telegram: {
 			bot_token: { type: String },
 			chat_id: { type: String },
-		}],
+		},
 
 		webhook: [{
 			url: { type: String },

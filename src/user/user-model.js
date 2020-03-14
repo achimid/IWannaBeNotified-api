@@ -27,18 +27,16 @@ const UserSchema = new mongoose.Schema({
 	telegram_chat_id: { type: Number },
 	notifications: [{ // Deve refletir o mesmo atributo em sr-mode.js
 
-		template: { _id: false, type: String },
-		email: [{ _id: false, type: String }],
-		sms: [{ _id: false, type: String }],
+		template: { type: String },
+		email: [{ type: String }],
+		sms: [{ type: String }],
 
-		telegram: [{
-			_id: false,
+		telegram: {
 			bot_token: { type: String },
 			chat_id: { type: String },
-		}],
+		},
 
 		webhook: [{
-			_id: false,
 			url: { type: String },
 			method: { type: String }
 		}]
