@@ -45,7 +45,7 @@ const notifyChannels = (site) => {
         if (notf.telegram) {
             const message = templateFormat(site, notf.template)
             return TelegramDispatcher.notifyAll(message)
-        } else if (notf.email) {
+        } else if (notf.email && notf.email.legth > 0) {
             const message = templateFormat(site, notf.template)
             return EmailDispatcher.sendEMail(notf.email, message)
         } else if (notf.webhook) {
