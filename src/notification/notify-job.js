@@ -67,6 +67,11 @@ const notifyChannels = (site) => {
 //         .catch(() => console.error('SiteRequestId Inválido'))
 // }
 
+const getFilter = (site) => {
+    if (site.filter && site.filter.words.length > 0) return site.filter
+    if (site.userId && site.userId.filter && site.userId.filter.words.length > 0) return site.userId.filter
+    return false
+}
 
 const validateAndNotify = async (req, exect) => {
     
@@ -82,8 +87,10 @@ const validateAndNotify = async (req, exect) => {
             if (!isUnique) throw 'Hash not unique'
         }
 
-        if (req.filter && req.filter.words && req.filter.words.length > 0) {
-            if (!hasSimilarity(exect.extractedTarget, req.filter.words, req.filter.threshold)) {
+        const filter = getFilter(req)
+        if (filter) {
+            const { words, threshold} = filter
+            if (!hasSimilarity(exect.extractedTarget, words, threshold)) {
                 throw 'Has no similarity with filters'
             }
         }

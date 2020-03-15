@@ -41,7 +41,13 @@ const UserSchema = new mongoose.Schema({
 			method: { type: String }
 		}]
 
-	}]
+	}],
+    filter: {
+        threshold: Number,
+        words: [{
+            type: String
+        }]
+    }
 })
 
 
