@@ -7,12 +7,16 @@ const onConnection = (client) => {
 
 socket.on('connection', onConnection)
 
-const clientDownload = (url) => socket.emit('client_download', { url })
+const clientDownload = (url, account) => socket.emit(account || 'client_download', { url })
 
 const notifyWebSocket = async (site) => {
     console.log('Notificando Client Download...')
     
-    return clientDownload(site.extractedTarget)
+    let account
+    if (site.userId && site.userId.email) 
+        account = site.userId.email
+
+    return clientDownload(site.extractedTarget, account)
 }
 
 module.exports = {

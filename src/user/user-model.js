@@ -39,8 +39,9 @@ const UserSchema = new mongoose.Schema({
 		webhook: [{
 			url: { type: String },
 			method: { type: String }
-		}]
+		}],
 
+		websocket: { type: Boolean }
 	}],
     filter: {
         threshold: Number,

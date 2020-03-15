@@ -48,7 +48,7 @@ const notifyChannels = (site) => {
         } else if (notf.email && notf.email.legth > 0) {
             const message = templateFormat(site, notf.template)
             return EmailDispatcher.sendEMail(notf.email, message)
-        } else if (notf.webhook) {
+        } else if (notf.webhook && notf.webhook.legth > 0) {
             return WebHookDispatcher.send(notf.webhook, site)
         } if (notf.websocket) {
             return WebSocketDispacher.notifyWebSocket(site)
@@ -76,24 +76,24 @@ const getFilter = (site) => {
 const validateAndNotify = async (req, exect) => {
     
     try {
-        if (!exect.isSuccess)
-            throw 'Execution failed'
+        // if (!exect.isSuccess)
+        //     throw 'Execution failed'
             
-        if (req.options.onlyChanged && !req.lastExecution.hashChanged) 
-            throw 'Hash not changed'
+        // if (req.options.onlyChanged && !req.lastExecution.hashChanged) 
+        //     throw 'Hash not changed'
 
-        if (req.options.onlyUnique) {
-            const isUnique = await countHash(req, exect) <= 0
-            if (!isUnique) throw 'Hash not unique'
-        }
+        // if (req.options.onlyUnique) {
+        //     const isUnique = await countHash(req, exect) <= 0
+        //     if (!isUnique) throw 'Hash not unique'
+        // }
 
-        const filter = getFilter(req)
-        if (filter) {
-            const { words, threshold} = filter
-            if (!hasSimilarity(exect.extractedTarget, words, threshold)) {
-                throw 'Has no similarity with filters'
-            }
-        }
+        // const filter = getFilter(req)
+        // if (filter) {
+        //     const { words, threshold} = filter
+        //     if (!hasSimilarity(exect.extractedTarget, words, threshold)) {
+        //         throw 'Has no similarity with filters'
+        //     }
+        // }
 
         notifyChannels(req) // Async
         // executeNextRequest(req) // Async

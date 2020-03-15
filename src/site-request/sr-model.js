@@ -80,8 +80,10 @@ const schema = mongoose.Schema({
 		webhook: [{
 			url: { type: String },
 			method: { type: String }
-		}]
+		}],
 
+        websocket: { type: Boolean }
+        
 	}]
         
 }, { versionKey: false, timestamps: true})
