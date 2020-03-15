@@ -42,7 +42,7 @@ const notifyChannels = (site) => {
     const notifications = getNotifications(site)
     return Promise.all(notifications.map(notf => {        
 
-        if (notf.telegram) {
+        if (notf.telegram.chat_id) {
             const message = templateFormat(site, notf.template)
             return TelegramDispatcher.notifyAll(message)
         } else if (notf.email && notf.email.legth > 0) {
@@ -76,24 +76,24 @@ const getFilter = (site) => {
 const validateAndNotify = async (req, exect) => {
     
     try {
-        // if (!exect.isSuccess)
-        //     throw 'Execution failed'
+        if (!exect.isSuccess)
+            throw 'Execution failed'
             
-        // if (req.options.onlyChanged && !req.lastExecution.hashChanged) 
-        //     throw 'Hash not changed'
+        if (req.options.onlyChanged && !req.lastExecution.hashChanged) 
+            throw 'Hash not changed'
 
-        // if (req.options.onlyUnique) {
-        //     const isUnique = await countHash(req, exect) <= 0
-        //     if (!isUnique) throw 'Hash not unique'
-        // }
+        if (req.options.onlyUnique) {
+            const isUnique = await countHash(req, exect) <= 0
+            if (!isUnique) throw 'Hash not unique'
+        }
 
-        // const filter = getFilter(req)
-        // if (filter) {
-        //     const { words, threshold} = filter
-        //     if (!hasSimilarity(exect.extractedTarget, words, threshold)) {
-        //         throw 'Has no similarity with filters'
-        //     }
-        // }
+        const filter = getFilter(req)
+        if (filter) {
+            const { words, threshold} = filter
+            if (!hasSimilarity(exect.extractedTarget, words, threshold)) {
+                throw 'Has no similarity with filters'
+            }
+        }
 
         notifyChannels(req) // Async
         // executeNextRequest(req) // Async
