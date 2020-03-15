@@ -3,6 +3,29 @@ Criar um frontend para cadatro dos sites
 
 Fazer documentação da api no README.md
 
+Como resolver o problema da dependencia entre paginas?
+    Quero pegar o link de download do anime que esta na página do próprio anime, 
+        porem não posso ficar monitorando a pagina do anime muito frequentemente, 
+        pois sei que nao existem muitas atualizações nas paginas.
+    Então quero que quando houver um lançamento na pagina inicial, o link obtido na pagina inicial,
+        pode ser o link da pagina de download, e com esse link, será executado um novo processo de 
+        extração de conteudo. 
+    Pensei em algumas soluções:
+>>  Quando a execução finalizar, associar ela a uma nova requisição pré cadastrada, o problema é
+        como passar o link obtido para essa nova execução, o link pode estar em qualquer content ou
+        até mesmo no target. Posso forçar uma regra do tipo, se algum extractedContent for uma urls,
+        e existir um script de then: '', então chame uma nova execução, passando como url, 
+        o link do content, assim extraindo o link de download, porem a chamada dessa segunda request,
+        será pré notificação, e a notificação do pai, será passada para o filho. Se o filho tiver 
+        sucesso notifica o filho, caso contrário, notifica o pai.
+
+    
+    Outra possibilidade é criar um objeto mais completo dentro do contentScript, para que quando o
+        conteudo for extraido, ele execute novos scripts, o problema desse metodo que não saberia se 
+        é uma nova atualização ou não.
+
+
+
 Colocar o Swagger no projeto
 
 Pensar am alguns esquema de adsense do google a cada request
