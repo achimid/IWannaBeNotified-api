@@ -1,11 +1,22 @@
 
-# WebPageNotify API
+# NotifyMe API
 
-## Objetivo
-	Esta aplicação tem como objetivo monitorar paginas web de uma maneira configuravel e efetuar notificações referente a pagina. 
 
-## Cadatro
-	Inicialmente você deve informar o site que será monitorado (url) e o que nessa pagina será o alvo do monitoramento. (Ex: Monitore a sessão de noticias da página)
-	Para o monitoramento de uma pagina, é possivel informar um script para obter o html da pagina ou extrair qualquer outra informação por meio de scripts.
+#### O que é o NotifyMe ?
 
-## Notificação
+O NotifyMe é um serviço de notificação de paginas da internet disponibilizado por meio de uma API REST, que permite que você monitore um site por atualizações e receba uma notificação sempre que o site for tiver uma nova atualização.
+
+O serviço é customizavel a ponto de você configurar quais informações você deseja extrair do site, o template que você deseja receber a notificação e até mesmo os canais que você deseja ser notificado. 
+Possiveis canais para receber a notificação (* - Pendente de criação):
+
+* Email
+* SMS *
+* Facebook Menssager *
+* Whatsapp *
+* Telegram
+* Webhook 
+* Webpush *
+* Websocket
+* PubSub *
+
+#### Como posso utilizar o NotifyMe?
