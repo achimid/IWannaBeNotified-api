@@ -32,6 +32,9 @@ Pensar am alguns esquema de adsense do google a cada request
 
 Extrair as estruturas e criar modelos proprios para as notificações e filter que são utilizados pelo resuest e user
 
+Quando adiciona um novo monitoramento, precisa reiniciar o pod, pois ele não faz o schealuder.
+
+Sempre que eu colocar uma notificação, a primeira execuão sempre será notificada, fazer alguma coisa para que pareça um teste.
 
 
 
