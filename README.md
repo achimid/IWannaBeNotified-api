@@ -8,7 +8,7 @@ Serviço hospedado no Heroku para teste => https://web-page-notify-api-2.herokua
 O NotifyMe é um serviço de notificação de paginas da internet disponibilizado por meio de uma API REST, que permite que você monitore um site por atualizações e receba uma notificação sempre que o site for tiver uma nova atualização.
 
 O serviço é customizavel a ponto de você configurar quais informações você deseja extrair do site, o template que você deseja receber a notificação e até mesmo os canais que você deseja ser notificado. 
-Possiveis canais para receber a notificação (* - Pendente de criação):
+Possiveis canais para receber a notificação (* endente de criação):
 
 * Email
 * SMS *
