@@ -20,4 +20,5 @@ Possiveis canais para receber a notificação (* pendente de criação):
 * Websocket
 * PubSub *
 
-#### Como posso utilizar o NotifyMe?
+#### Como posso utilizar o NotifyMe (Ideias/Exemplos)?
+
