@@ -1,6 +1,7 @@
 
 # NotifyMe API
 
+Url hospedada no Heroku para teste => https://web-page-notify-api-2.herokuapp.com/
 
 #### O que é o NotifyMe ?
 
