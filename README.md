@@ -30,7 +30,7 @@ A verificação do site é feita de uma forma cíclica, ou seja, de tempos em te
  
 ### (Ideias/Exemplos)
 
-Alguns Exemplos e Idéias de utilização:
+Algumas Idéias e Exemplos de utilização:
 
 #### Exemplo de Utilização 1
  
@@ -42,7 +42,7 @@ Alguns Exemplos e Idéias de utilização:
  
 #### Exemplo de Utilização 3
  
-* Sempre que houver uma lançamento de um site (Filme, Séries ...) quero que meu sistema receba uma notificação do conteúdo, para que eu possa centralizar o conteúdo de diversos sites.
+* Sempre que houver uma lançamento de um site (Filme, Séries ...) quero que meu sistema receba uma notificação do conteúdo para que eu possa centralizar o conteúdo de diversos sites.
  
 #### Exemplo de Utilização 4
  
