@@ -89,4 +89,4 @@ Redirecionar para o Swagger da API (Link*)
 #### Funcionamento
  
 
-Explicar a utilização do puppetieer, dos workers, do falback da api, das options, sobre o o filtro, sobre a linguagem do projeto....
+Explicar a utilização do puppetieer, dos workers, do falback da api, das options, sobre o o filtro de similaridade, sobre a linguagem do projeto.... Sobre as integrações, sobre o usuario
