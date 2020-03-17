@@ -50,22 +50,21 @@ A verificação do site é feita de uma forma ciclica, ou seja, de tempos em tem
 
 ##### Endpoins
 
-    GET  -  /notify         - Lista todas as requisições de monitoramento cadastradas
+    GET  -  /notify                     - Lista todas as requisições de monitoramento cadastradas
     
-    POST -  /notify         - Cadastra uma requisição de monitoramentos
+    POST -  /notify                     - Cadastra uma requisição de monitoramentos
 
     POST -  /notify/:id/execute         - Executa uma requisição previamente cadastrada
     
-    POST -  /execute        - Executa uma requisição com a intenção de pré-visualizar a execução dos scripts
+    POST -  /execute                    - Executa uma requisição com a intenção de pré-visualizar a execução dos scripts
     
-    GET  -  /execute        - Executa uma requisição com a intenção de pré-visualizar a execução 
-    dos scripts
+    GET  -  /execute                    - Executa uma requisição com a intenção de pré-visualizar a execução dos scripts
 
-    POST -  /user           - Efetua a criação de um usuário
+    POST -  /user                       - Efetua a criação de um usuário
 
-    GET  -  /user/current   - Recupera o usuario baseado no JWT
+    GET  -  /user/current               - Recupera o usuario baseado no JWT
 
-    POST -  /user/login     - Efetua a autenticação(login) do usuario
+    POST -  /user/login                 - Efetua a autenticação(login) do usuario
 
     POST -  /user/:id/notifications     - Adiciona uma nova notificação geral para o usuario que sera utilizada para todas as requisições que não possui nenhuma notificação informada
 
