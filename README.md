@@ -20,7 +20,7 @@ Possíveis canais para receber a notificação (* - pendente de criação):
 * Websocket
 * PubSub *
  
-### Como posso utilizar o NotifyMe (Ideias/Exemplos)?
+### Como posso utilizar o NotifyMe?
  
 O serviço permite que você monitore o conteúdo de uma página Web apenas informando a Url dessa página e sempre o serviço identificar uma mudança de conteúdo. Normalmente as páginas da web mudam com muita frequência, algumas delas, chegam a ser diferente a cada acesso (propagandas e datas)
  
@@ -28,6 +28,10 @@ Além de receber simples notificações é possível receber o conteúdo extraí
  
 A verificação do site é feita de uma forma cíclica, ou seja, de tempos em tempos o serviço acesse o site desejado para obter o conteúdo dele, é possível configurar este tempo de verificação. Assim, você pode receber o conteúdo sempre que esse ciclo ocorra, dependendo do seu propósito. Também é possível configurar o monitoramento para que você receba apenas conteúdos quando forem diferentes do conteúdo encontrado anteriormente (change) ou até mesmo conteúdos únicos.
  
+### (Ideias/Exemplos)
+
+Alguns Exemplos e Idéias de utilização:
+
 #### Exemplo de Utilização 1
  
 * Desejo monitorar uma pagina de noticias, para receber uma notificação sempre que uma nova notícia for lançada.
