@@ -30,19 +30,19 @@ A verificação do site é feita de uma forma ciclica, ou seja, de tempos em tem
 
 ##### Exemplo de Utilização 1
 
-Desejo monitorar uma pagina de noticias, para receber uma notificação sempre que uma nova notícia for lançada.
+* Desejo monitorar uma pagina de noticias, para receber uma notificação sempre que uma nova notícia for lançada.
 
 ##### Exemplo de Utilização 2
 
-Desejo receber por e-mail sempre que houver uma mudança no meu site empresarial.
+* Desejo receber por e-mail sempre que houver uma mudança no meu site empresarial.
 
 ##### Exemplo de Utilização 3
 
-Sempre que houver uma lançamento de um site (Filme, Séries ...) quero que meu sistema receba uma notificação do conteudo, para que eu possa centralizar o conteudo de diversos sites.
+* Sempre que houver uma lançamento de um site (Filme, Séries ...) quero que meu sistema receba uma notificação do conteudo, para que eu possa centralizar o conteudo de diversos sites.
 
 ##### Exemplo de Utilização 4
 
-Gostaria der receber uma notificação no telegram sempre que surgir uma notícia ou um artigo sobre um determinado assunto.
+* Gostaria der receber uma notificação no telegram sempre que surgir uma notícia ou um artigo sobre um determinado assunto.
 
 ##### Idéias
 
