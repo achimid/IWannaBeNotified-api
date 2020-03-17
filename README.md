@@ -46,7 +46,20 @@ A verificação do site é feita de uma forma ciclica, ou seja, de tempos em tem
 
 #### Idéias
 
+    * Criar um sistema de monitoramento que verifica se o seu site ou API esta em funcionamento (Healcheck)
+    * Criar uma aplicação que sempre que você fizer uma postagem em seu site, automaticamente essa postagem é distribuida para um grupo no Telegram ou Whatsapp
+    * Criar uma API centralizadora de lançamento de Filmes
+    * Criar uma API centralizadora de lançamento de Séries 
+    * Criar uma API centralizadora de lançamento de Animes
+    * Criar uma API centralizadora de conteúdos de Noticias
+    * Criar uma API centralizadora de conteúdos de Pessoas famosas
+    
+
+
+
 #### API
+
+Exeplicar sobre a Authenticação, Limitantes, o que é uma requisição, o que é uma execução.
 
 ##### Endpoins
 
