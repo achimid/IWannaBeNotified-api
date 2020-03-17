@@ -46,14 +46,16 @@ A verificação do site é feita de uma forma ciclica, ou seja, de tempos em tem
 
 #### Idéias
 
-    * Criar um sistema de monitoramento que verifica se o seu site ou API esta em funcionamento (Healcheck)
-    * Criar uma aplicação que sempre que você fizer uma postagem em seu site, automaticamente essa postagem é distribuida para um grupo no Telegram ou Whatsapp
-    * Criar uma API centralizadora de lançamento de Filmes
-    * Criar uma API centralizadora de lançamento de Séries 
-    * Criar uma API centralizadora de lançamento de Animes
-    * Criar uma API centralizadora de conteúdos de Noticias
-    * Criar uma API centralizadora de conteúdos de Pessoas famosas
-    
+* Criar um sistema de monitoramento que verifica se o seu site ou API esta em funcionamento (Healcheck)
+* Criar uma aplicação que sempre que você fizer uma postagem em seu site, automaticamente essa postagem é distribuida para um grupo no Telegram ou Whatsapp
+* Criar uma aplicação para criar históricos de sites como se fosse um backup, basta apenas apontar para a url do site e os backup começaram a ser gerados em forma de HTML... ou Imagens...
+* Criar uma API centralizadora de lançamento de Filmes
+* O mesmo descrito a cima para Series 
+* O mesmo descrito a cima para Animes
+* Criar uma API centralizadora de conteúdos de Noticias
+* Criar uma API centralizadora de conteúdos de Pessoas famosas
+* Criar uma aplicação onde é possivel cadastrar o valor desejado de um papel do mercado de ações e quando o papel atingir determinado valor, receber um aviso, executar uma compra/venda ou até mesmo um comando desejado
+* Criar um sistema que sempre que lançar os animes que você assiste em um site de sua escolha, efetuar o download do anime automaticamente
 
 
 
