@@ -26,11 +26,25 @@ O serviço permite que você monitore o conteudo de uma página Web apenas infor
 
 Além de receber simples notificações é possivel receber o conteudo extraido da página. Caso você conheça algum pouco de Javacript, é possivel executar scripts para extração e manipulação do conteudo da página antes da obtenção das informações, desta maneira você pode extrair apenas uma parte da página se desejar. 
 
-##### Exemplo 1
+A verificação do site é feita de uma forma ciclica, ou seja, de tempos em tempos o serviço acessa o site desejado para obter o conteúdo dele, é possível configurar este tempo de verificação. Assim, você pode receber o conteúdo sempre que esse ciclo ocorra, dependendo do seu propósido. Também é possivel configurar o monitoramente para que você receba apenas conteudos quando forem diferêntes do conteudo encontrado anteriomente (change) ou até mesmo conteudos unicos.
+
+##### Exemplo de Utilização 1
+
 Desejo monitorar uma pagina de noticias, para receber uma notificação sempre que uma nova notícia for lançada.
 
-##### Exemplo 2
+##### Exemplo de Utilização 2
 
+Desejo receber por e-mail sempre que houver uma mudança no meu site empresarial.
+
+##### Exemplo de Utilização 3
+
+Sempre que houver uma lançamento de um site (Filme, Séries ...) quero que meu sistema receba uma notificação do conteudo, para que eu possa centralizar o conteudo de diversos sites.
+
+##### Exemplo de Utilização 4
+
+Gostaria der receber uma notificação no telegram sempre que surgir uma notícia ou um artigo sobre um determinado assunto.
+
+##### Idéias
 
 
 #### Funcionamento
