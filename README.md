@@ -5,20 +5,36 @@ Serviço hospedado no Heroku para teste => https://web-page-notify-api-2.herokua
 
 #### O que é o NotifyMe ?
 
-O NotifyMe é um serviço de notificação de paginas da internet disponibilizado por meio de uma API REST, que permite que você monitore um site por atualizações e receba uma notificação sempre que o site for tiver uma nova atualização.
+O NotifyMe é um serviço de notificação de páginas da internet disponibilizado por meio de uma API REST, que permite que você monitore um site por atualizações e receba uma notificação sempre que o site for tiver uma nova atualização.
 
-O serviço é customizavel a ponto de você configurar quais informações você deseja extrair do site, o template que você deseja receber a notificação e até mesmo os canais que você deseja ser notificado. 
-Possiveis canais para receber a notificação (* pendente de criação):
+O serviço é customizável a ponto de você configurar quais informações você deseja extrair do site, o template que você deseja receber a notificação e até mesmo os canais que você deseja ser notificado. 
 
+Possíveis canais para receber a notificação (* - pendente de criação):
 * Email
 * SMS *
 * Facebook Menssager *
 * Whatsapp *
 * Telegram
 * Webhook 
-* Webpush *
+* Web Push *
 * Websocket
 * PubSub *
 
 #### Como posso utilizar o NotifyMe (Ideias/Exemplos)?
+
+
+
+O serviço permite que você monitore o conteudo de uma página Web apenas informando a Url dessa página e sempre o serviço identificar uma mudança de conteudo. Normalmente as páginas da web mudam com muita frequencia, algumas delas, chegam a ser diferênte a cada acesso (propagandas, datas e coisas parecidas)
+
+Caso você conheça algum pouco de Javacript, é possivel executar scripts para extração e manipulação do conteudo da página antes da obtenção das informações, desta maneira você pode extrair apenas uma parte da página se desejar. 
+
+##### Exemplo 1
+
+Desejo monitorar uma pagina de noticias, para receber uma notificação sempre que uma nova notícia for lançada. Posso 
+
+
+#### Funcionamento
+
+
+#### Endpoints
 
