@@ -22,18 +22,19 @@ Possíveis canais para receber a notificação (* - pendente de criação):
 
 #### Como posso utilizar o NotifyMe (Ideias/Exemplos)?
 
+O serviço permite que você monitore o conteudo de uma página Web apenas informando a Url dessa página e sempre o serviço identificar uma mudança de conteudo. Normalmente as páginas da web mudam com muita frequência, algumas delas, chegam a ser diferênte a cada acesso (propagandas e datas)
 
-
-O serviço permite que você monitore o conteudo de uma página Web apenas informando a Url dessa página e sempre o serviço identificar uma mudança de conteudo. Normalmente as páginas da web mudam com muita frequencia, algumas delas, chegam a ser diferênte a cada acesso (propagandas, datas e coisas parecidas)
-
-Caso você conheça algum pouco de Javacript, é possivel executar scripts para extração e manipulação do conteudo da página antes da obtenção das informações, desta maneira você pode extrair apenas uma parte da página se desejar. 
+Além de receber simples notificações é possivel receber o conteudo extraido da página. Caso você conheça algum pouco de Javacript, é possivel executar scripts para extração e manipulação do conteudo da página antes da obtenção das informações, desta maneira você pode extrair apenas uma parte da página se desejar. 
 
 ##### Exemplo 1
+Desejo monitorar uma pagina de noticias, para receber uma notificação sempre que uma nova notícia for lançada.
 
-Desejo monitorar uma pagina de noticias, para receber uma notificação sempre que uma nova notícia for lançada. Posso 
+##### Exemplo 2
+
 
 
 #### Funcionamento
+
 
 
 #### Endpoints
