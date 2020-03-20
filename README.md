@@ -104,6 +104,4 @@ Existe um endpoint para testar os scripts antes de cadatrar uma request, porem o
  
 #### Funcionamento
  
-
-
-Explicar a utilização do puppetieer, dos workers, do falback da api, das options, sobre o o filtro de similaridade, sobre a linguagem do projeto.... Sobre as integrações, sobre o usuario
+// TODO - Explicar a utilização do puppetieer, dos workers, do falback da api, das options, sobre o o filtro de similaridade, sobre a linguagem do projeto.... Sobre as integrações, sobre o usuario
