@@ -88,7 +88,7 @@ Explicar sobre a Autenticação, Limitantes, o que é uma requisição, o que é
     
     POST -  /user/:id/notifications     - Adiciona uma nova notificação geral para o usuário que será utilizada para todas as requisições que não possui nenhuma notificação informada
 
-Redirecionar para o Swagger da API (Link*)
+(Documentação da API - Swagger)[https://web-page-notify-api-2.herokuapp.com/]
  
 #### Funcionamento
  
