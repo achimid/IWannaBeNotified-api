@@ -80,23 +80,23 @@ Existe um endpoint para testar os scripts antes de cadastrar uma request, porém
  
 ##### Endpoints
 
-   GET  -  /notify                     - Lista todas as requisições de monitoramento cadastradas
-  
-   POST -  /notify                     - Cadastrar uma requisição de monitoramentos
-  
-   POST -  /notify/:id/execute         - Executa uma requisição previamente cadastrada
-  
-   POST -  /execute                    - Executa uma requisição com a intenção de pré-visualizar a execução dos scripts
-  
-   GET  -  /execute                    - Executa uma requisição com a intenção de pré-visualizar a execução dos scripts
-  
-   POST -  /user                       - Efetua a criação de um usuário
-  
-   GET  -  /user/current               - Recupera o usuário baseado no JWT
-  
-   POST -  /user/login                 - Efetua a autenticação(login) do usuário
-  
-   POST -  /user/:id/notifications     - Adiciona uma nova notificação geral para o usuário que será utilizada para todas as requisições que não possui nenhuma notificação informada
+    GET  -  /notify                     - Lista todas as requisições de monitoramento cadastradas
+    
+    POST -  /notify                     - Cadastrar uma requisição de monitoramentos
+    
+    POST -  /notify/:id/execute         - Executa uma requisição previamente cadastrada
+    
+    POST -  /execute                    - Executa uma requisição com a intenção de pré-visualizar a execução dos scripts
+    
+    GET  -  /execute                    - Executa uma requisição com a intenção de pré-visualizar a execução dos scripts
+    
+    POST -  /user                       - Efetua a criação de um usuário
+    
+    GET  -  /user/current               - Recupera o usuário baseado no JWT
+    
+    POST -  /user/login                 - Efetua a autenticação(login) do usuário
+    
+    POST -  /user/:id/notifications     - Adiciona uma nova notificação geral para o usuário que será utilizada para todas as requisições que não possui nenhuma notificação informada
  
 // TODO - Criar exemplos de utilização para cada endpoint...
  
