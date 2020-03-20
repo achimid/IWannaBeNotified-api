@@ -40,7 +40,28 @@ Endpoins de cadastro de Filtro por usuario
 
 Extrair o filtro de similaridade para uma API a parte
 
+Extrair o executor das request para um modulo separa a parte (workers), para que seja possivel escalar a aplicação.
+Criar uma aplicação responsavel por fazer o agendamento das request, e colocar em uma fila, onde os workers vão ficar conectados na fila e trabalgando em paralelo, para que 2 workers nao efetue a mesma execução.
+Pesquisar como utilizar fila no heroku, ou se vale a pena fazer uma aplicação node somente para enfileirar.
 
+
+Mudar o nome para IWannaBeNotified.com
+Algumas ideias para a criação do front-end:
+    Um cabeçalho bem grande com o nome do site "I Wanna Be Notified" e abaixo desse cabeçalho varias opções:
+        
+        When? Quando eu quero ser notificado? (Quando algo mudar no site?, Quando Algo novo for publicado? Sempre?)
+        Where? Deve ser necessário informar o site que você quer monitorar.
+        How? Como eu quero ser notificado? (Email? WebPush? Telegram? Whats? API?)
+
+        Quando a pessoa vai finalizar o cadastro, aparece um popup informando ela sobre ter uma conta ou não, e que se ela tiver uma conta ela vai poder editar e tudo mais, se ela não tiver uma conta, ele nao pode editar ou ver as notificações cadastradas nem excluir.
+        Se ela deseja criar uma conta.
+        E uma informação falando que ela vai receber uma notificação de teste.
+
+        Advanced:
+            Algumas opções e tempo de execução (por padrão é a cada 10 minutos... pode diminuir até 3-2 minutos)
+
+        Pode ter uma opção onde você seleciona monitoramentos pré-cadastrados (Animes, Filmes, Noticias, Series, Nome de pessoas...., Ações...)
+        Pode ter uma opção onde você não sabe como preencher as informações e você pode criar um texto descrevendo o que você quer.
 
 
 
