@@ -52,6 +52,7 @@ router.post("/", async (req, res) => {
 })
 
 
+
 router.post('/:id/notifications', inUser, async (req, res) => {        
     service.addNotification(req.params.id, req.body)
       .then(() => res.status(HttpStatus.OK).send())

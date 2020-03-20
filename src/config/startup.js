@@ -5,6 +5,7 @@ const { socketInit } = require('../utils/socket-util')
 const initBrowser = require('../utils/puppeteer-util')
 const healthCheckJob = require('../healthcheck/healthcheck-job')
 
+
 const init = () => initBrowser()
     .then(databaseInit)
     .then(notifyJobInit)

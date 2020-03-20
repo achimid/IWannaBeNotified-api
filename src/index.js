@@ -3,6 +3,9 @@ require('dotenv').config()
 const express = require('express')
 const compression = require('compression')
 const monitor = require('express-status-monitor')
+const cors = require('cors')
+const errorHandler = require('./middleware/error-handler-middleware')
+const swagger = require('./common/swagger')
 
 const app = express()
 
@@ -17,8 +20,13 @@ app.use(monitor())
 app.use(compression())
 app.use(express.json())
 app.use(account())
+app.use(cors())
+app.disable('x-powered-by')
+
+swagger.startup(app)
 
 routes(app)
 statup()
+errorHandler(app)
 
 server.listen(process.env.PORT)
