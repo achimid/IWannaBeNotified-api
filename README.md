@@ -65,7 +65,15 @@ Algumas Idéias e Exemplos de utilização:
  
  
 #### API
- 
+
+A API permite que você cadastre intenções de monitoramento, o que na documentação é chamado de requisição ou `request`, a request determina como o monitoramento será executado, qual a periodicidade, qual o alvo (Url do site), quais os scripts que serão executados no alvo, e como será efetuada a notificação após obter as informações do alvo.
+
+Após cadastrar a intenção de monitoramento (request), quando chegar a hora de executar, será criado uma `execution`, essa execution é a operação de fato, ou seja, a aplicação irá acessar o site informado, executar os scrips informados, obter o conteudo de resposta. No futuro essa execution será utilizada para efetuar os disparos das notificações.
+
+Existe a possibilidade de criar um usuario na aplicação, para que o usuario possa gerencias as suas próprias requests, mas tambem é possivel criar uma request anônima. Para identificação do usuário é necessário informar no header `Authentication` o Token JWT fornecido no momento da authenticação. Com a utilização de um usuario é possivel centralizar algumas operações como por exemplo, notificações e filtros. Ao cadastrar um filtro para o usuario, todas suas request irão respeitar esse filtro, exceto quando ela tiver um filtro próprio. Também é possivel cadastrar notificações para o usuario, e quando a request não tiver uma notificação própria ele utilizará a cadastrada para o usuario. 
+
+Existe um endpoint para testar os scripts antes de cadatrar uma request, porem o endpoint é apenas para teste, ele pode demorar a responder e enfileirar as execuções.
+
 Explicar sobre a Autenticação, Limitantes, o que é uma requisição, o que é uma execução.
  
 ##### Endpoints
