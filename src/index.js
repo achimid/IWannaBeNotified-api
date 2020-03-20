@@ -5,7 +5,7 @@ const compression = require('compression')
 const monitor = require('express-status-monitor')
 const cors = require('cors')
 const errorHandler = require('./middleware/error-handler-middleware')
-const swagger = require('./common/swagger')
+const swagger = require('./config/swagger')
 
 const app = express()
 

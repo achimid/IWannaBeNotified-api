@@ -1,6 +1,6 @@
 const status = require('http-status')
-const logger = require('../common/logger')
-const { ResourceNotFound } = require('../common/errors')
+const logger = require('../config/logger')
+const { ResourceNotFound } = require('../errors')
 
 const notFoundErrorHandler = (request, response, next) => {
     next(new ResourceNotFound())
