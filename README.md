@@ -9,7 +9,7 @@ O NotifyMe é um serviço de notificação de páginas da internet disponibiliza
  
 O serviço é customizável a ponto de você configurar quais informações você deseja extrair do site, o template que você deseja receber a notificação e até mesmo os canais que você deseja ser notificado.
  
-Possíveis canais para receber a notificação (* - pendente de criação):
+Possíveis canais para receber a notificação:
 * Email
 * SMS *
 * Facebook Messenger *
@@ -20,6 +20,8 @@ Possíveis canais para receber a notificação (* - pendente de criação):
 * Websocket
 * PubSub *
  
+(* - pendente de criação)
+
 ### Como posso utilizar o NotifyMe?
  
 O serviço permite que você monitore o conteúdo de uma página Web apenas informando a Url dessa página e sempre o serviço identificar uma mudança de conteúdo. Normalmente as páginas da web mudam com muita frequência, algumas delas, chegam a ser diferente a cada acesso (propagandas e datas)
@@ -95,6 +97,8 @@ Existe um endpoint para testar os scripts antes de cadatrar uma request, porem o
     POST -  /user/login                 - Efetua a autenticação(login) do usuário
     
     POST -  /user/:id/notifications     - Adiciona uma nova notificação geral para o usuário que será utilizada para todas as requisições que não possui nenhuma notificação informada
+
+// TODO - Criar exemplos de utilização para cada endpoint... 
 
 [Documentação da API - Swagger](https://web-page-notify-api-2.herokuapp.com/api/v1/docs)
  
