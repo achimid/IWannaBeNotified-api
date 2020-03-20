@@ -6,6 +6,12 @@ function startup (app) {
     const expressSwagger = swagger(app)
 
     const options = {
+        basedir: __dirname,
+        files: ['../**/*.js'],
+        route: {
+            url: '/api/v1/docs',
+            docs: '/api/v1/docs.json'
+        },
         swaggerDefinition: {
             info: {
                 description: '',
@@ -26,12 +32,6 @@ function startup (app) {
                     description: ''
                 }
             }
-        },
-        basedir: __dirname,
-        files: ['../**/*.js'],
-        route: {
-            url: '/api/v1/docs',
-            docs: '/api/v1/docs.json'
         }
     }
 
