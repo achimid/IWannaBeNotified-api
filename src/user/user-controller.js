@@ -52,7 +52,15 @@ router.post("/", async (req, res) => {
 })
 
 
-
+/**
+ * Service to get a seller with populate user
+ *
+ * @group Seller
+ * @route GET /seller/{id}
+ * @param {number} id.path.required Seller identifier
+ * @returns {Seller.model} 200 - OK
+ * @return  {Error} default - Unexpected error
+ */
 router.post('/:id/notifications', inUser, async (req, res) => {        
     service.addNotification(req.params.id, req.body)
       .then(() => res.status(HttpStatus.OK).send())

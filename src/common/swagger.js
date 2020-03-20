@@ -28,7 +28,7 @@ function startup (app) {
             }
         },
         basedir: __dirname,
-        files: ['./**/*.js'],
+        files: ['../**/*.js'],
         route: {
             url: '/api/v1/docs',
             docs: '/api/v1/docs.json'
