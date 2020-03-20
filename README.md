@@ -74,8 +74,6 @@ Existe a possibilidade de criar um usuario na aplicação, para que o usuario po
 
 Existe um endpoint para testar os scripts antes de cadatrar uma request, porem o endpoint é apenas para teste, ele pode demorar a responder e enfileirar as execuções.
 
-Explicar sobre a Autenticação, Limitantes, o que é uma requisição, o que é uma execução.
- 
 ##### Endpoints
  
     GET  -  /notify                     - Lista todas as requisições de monitoramento cadastradas
