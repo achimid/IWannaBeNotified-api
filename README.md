@@ -15,7 +15,7 @@ Possíveis canais para receber a notificação:
 * Facebook Messenger *
 * Whatsapp *
 * Telegram
-* Webhook
+* Web Hooks
 * Web Push *
 * Websocket
 * PubSub *
