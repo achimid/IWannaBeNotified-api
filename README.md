@@ -1,10 +1,10 @@
-# NotifyMe API
+# IWannaBeNotified API
 
-Serviço hospedado no Heroku para teste => https://web-page-notify-api-2.herokuapp.com/
+Serviço hospedado no Heroku para teste => http://iwannabenotified.ddns.net/
 
-### O que é o NotifyMe?
+### O que é o IWannaBeNotified?
 
-O NotifyMe é um serviço de notificação de páginas da internet disponibilizado por meio de uma API REST, que permite que você monitore um site por atualizações e receba uma notificação sempre que o site tiver uma nova atualização.
+O IWannaBeNotified é um serviço de notificação de páginas da internet disponibilizado por meio de uma API REST, que permite que você monitore um site por atualizações e receba uma notificação sempre que o site tiver uma nova atualização.
 
 O serviço é customizável a ponto de você configurar quais informações você deseja extrair do site, o template que você deseja receber a notificação e até mesmo os canais que você deseja ser notificado.
 
@@ -66,7 +66,7 @@ Algumas Idéias e Exemplos de utilização:
 
 ### API
  
-Serviço hospedado no Heroku para teste => https://web-page-notify-api-2.herokuapp.com/api/v1/
+Serviço hospedado no Heroku para teste => http://iwannabenotified.ddns.net/api/v1/
  
 A API permite que você cadastre intenções de monitoramento, o que na documentação é chamado de requisição ou `request`, a request determina como o monitoramento será executado, qual a periodicidade, qual o alvo (Url do site), quais os scripts que serão executados no alvo, e como será efetuada a notificação após obter as informações do alvo.
  
@@ -100,7 +100,7 @@ Existe um endpoint para testar os scripts antes de cadastrar uma request, porém
  
 // TODO - Criar exemplos de utilização para cada endpoint...
  
-[Documentação da API - Swagger](https://web-page-notify-api-2.herokuapp.com/api/v1/docs)
+[Documentação da API - Swagger](http://iwannabenotified.ddns.net/api/v1/docs)
 
 #### Funcionamento
 
