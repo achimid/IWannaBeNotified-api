@@ -17,7 +17,7 @@ const sendError = error => {
 
 
 router.get("/current", auth, async (req, res) => {
-    UserModel.findById(req.user._id).select("-password")
+    service.findById(req.user._id)
         .then((user) => res.json(user))
         .catch(sendError)
 })
@@ -28,10 +28,11 @@ router.post('/login', async (req, res) => {
     const { error } = validateLoginSchema(req.body)
     if (error) return res.status(HttpStatus.BAD_REQUEST).send(error.details[0].message)
 
-    const password = await secutiry.hash(req.body.password)
-    const user = await UserModel.findOne({ email: req.body.email, password }).select("-password")
-
+    const user = await UserModel.findOne({ email: req.body.email})
     if (!user) return res.status(HttpStatus.FORBIDDEN).send({error: "Credencial inválida"})
+
+    const isValidPassword = await secutiry.compare(req.body.password, user.password)
+    if (!isValidPassword) return res.status(HttpStatus.FORBIDDEN).send({error: "Credencial inválida"})
 
     const token = user.generateAuthToken()
     res.json({token})
@@ -39,7 +40,7 @@ router.post('/login', async (req, res) => {
 
 
 router.post("/", async (req, res) => {
-    
+
     const { error } = validateUserModel(req.body)
     if (error) return res.status(HttpStatus.BAD_REQUEST).send(error.details[0].message)
 

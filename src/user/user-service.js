@@ -9,7 +9,11 @@ const associateTelegramUser = async (email, tUser) => UserModel.findOne({ email 
         user.telegramChatId = tUser.id
         return user.save().then(() => true)
     })
+
+const findById = (id) => UserModel.findById(id).select("-password")
+
 module.exports = {
     addNotification,
-    associateTelegramUser
+    associateTelegramUser,
+    findById
 }

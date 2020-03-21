@@ -26,8 +26,6 @@ Como resolver o problema da dependencia entre paginas?
 
 
 
-Colocar o Swagger no projeto
-
 Pensar am alguns esquema de adsense do google a cada request
 
 Extrair as estruturas e criar modelos proprios para as notificações e filter que são utilizados pelo resuest e user
@@ -38,7 +36,7 @@ Sempre que eu colocar uma notificação, a primeira execuão sempre será notifi
 
 Endpoins de cadastro de Filtro por usuario
 
-Extrair o filtro de similaridade para uma API a parte
+Corrigir o problema do login
 
 Extrair o executor das request para um modulo separa a parte (workers), para que seja possivel escalar a aplicação.
 Criar uma aplicação responsavel por fazer o agendamento das request, e colocar em uma fila, onde os workers vão ficar conectados na fila e trabalgando em paralelo, para que 2 workers nao efetue a mesma execução.
@@ -65,8 +63,7 @@ Algumas ideias para a criação do front-end:
 
 
 
-
-
+Melhorar a documentação do Swagger
 
 
 
