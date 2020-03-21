@@ -24,7 +24,7 @@ router.get("/current", auth, async (req, res) => {
 
 
 router.post('/login', async (req, res) => {
-    
+        
     const { error } = validateLoginSchema(req.body)
     if (error) return res.status(HttpStatus.BAD_REQUEST).send(error.details[0].message)
 
@@ -45,7 +45,7 @@ router.post("/", async (req, res) => {
     if (error) return res.status(HttpStatus.BAD_REQUEST).send(error.details[0].message)
 
     let user = await UserModel.findOne({ email: req.body.email })
-    if (user) return res.status(HttpStatus.CONFLICT).send({error: "User ja esta cadastrado"})
+    if (user) return res.status(HttpStatus.CONFLICT).send({error: "User ja cadastrado"})
 
     user = new UserModel(req.body)
     user.password = await secutiry.hash(user.password)
