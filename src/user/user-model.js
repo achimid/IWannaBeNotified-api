@@ -24,7 +24,7 @@ const UserSchema = new mongoose.Schema({
 		maxlength: 255
 	},
 	isAdmin: Boolean,
-	telegram_chat_id: { type: Number },
+	telegramChatId: { type: Number },
 	notifications: [{ // Deve refletir o mesmo atributo em sr-mode.js
 
 		template: { type: String },
@@ -64,7 +64,6 @@ UserSchema.methods.generateAuthToken = function () {
 	return token
 }
 
-
 function validateUserModel(user) {
 	const schema = {
 		name: Joi.string().min(3).max(50).required(),
@@ -87,3 +86,47 @@ function validateLoginSchema(user) {
 exports.UserModel = mongoose.model('user', UserSchema)
 exports.validateUserModel = validateUserModel
 exports.validateLoginSchema = validateLoginSchema
+
+/**
+ * @typedef Filter
+ * @property {integer} _id
+ * @property {string} threshold - Limite de similaridade entre a palavra e o conteudo comparado. Quanto mais proximo de 0 mais exato possivel
+ * @property {Array.<string>} word - Palavras para serem utilizadas como filtro
+ */
+
+ /**
+ * @typedef Telegram
+ * @property {integer} _id
+ * @property {string} bot_token - Token do bot do telegram para notificação
+ * @property {string} chat_id - Chat do usuario no grupo, para disparo
+ */
+
+ /**
+ * @typedef Webhook
+ * @property {integer} _id
+ * @property {string} url - Url da aplicação WebHook
+ * @property {string} method - Verbo HTTP utilizado para notificação
+ */
+
+ /**
+ * @typedef Notification
+ * @property {integer} _id
+ * @property {string} template - 
+ * @property {[string]} email - 
+ * @property {[string]} sms - 
+ * @property {Array.<Telegram>} telegram - 
+ * @property {Array.<Webhook>} webhook - 
+ * @property {boolean} websocket - 
+ */
+
+/**
+ * @typedef User
+ * @property {integer} _id
+ * @property {string} name.required - Nome do usuario
+ * @property {string} email.required - Email de autenticação do usuario
+ * @property {string} password.required - Senha do usuario
+ * @property {boolean} isAdmin - Indica se o usuario é um adiministrador
+ * @property {string} telegramChatId - Id do Usuario no Telegram
+ * @property {Filter.model} filter - Filtro utilizado para busca de palavas similares
+ * @property {Array.<Notification>} notifications - Filtro utilizado para busca de palavas similares
+ */

@@ -6,7 +6,7 @@ const associateTelegramUser = async (email, tUser) => UserModel.findOne({ email 
     .then(user => {
         if (!user) return false
         
-        user.telegram_chat_id = tUser.id
+        user.telegramChatId = tUser.id
         return user.save().then(() => true)
     })
 module.exports = {

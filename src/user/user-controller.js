@@ -15,11 +15,13 @@ const sendError = error => {
     return res.status(HttpStatus.INTERNAL_SERVER_ERROR).send(error)
 }
 
+
 router.get("/current", auth, async (req, res) => {
     UserModel.findById(req.user._id).select("-password")
         .then((user) => res.json(user))
         .catch(sendError)
 })
+
 
 router.post('/login', async (req, res) => {
     
@@ -34,6 +36,7 @@ router.post('/login', async (req, res) => {
     const token = user.generateAuthToken()
     res.json({token})
 })
+
 
 router.post("/", async (req, res) => {
     
@@ -52,15 +55,6 @@ router.post("/", async (req, res) => {
 })
 
 
-/**
- * Service to get a seller with populate user
- *
- * @group Seller
- * @route GET /seller/{id}
- * @param {number} id.path.required Seller identifier
- * @returns {Seller.model} 200 - OK
- * @return  {Error} default - Unexpected error
- */
 router.post('/:id/notifications', inUser, async (req, res) => {        
     service.addNotification(req.params.id, req.body)
       .then(() => res.status(HttpStatus.OK).send())
