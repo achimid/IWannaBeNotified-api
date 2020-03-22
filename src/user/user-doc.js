@@ -77,3 +77,12 @@
  * @param {number} id.path.required Id do Usuário
  * @returns {User.model} 200 - OK
  */
+
+ /**
+ * Endpoint para alterar os parametros de filtragem do usuario
+ *
+ * @group User
+ * @route PUT /api/v1/user/{id}/filter
+ * @param {number} id.path.required Id do Usuário
+ * @returns {User.model} 200 - OK
+ */

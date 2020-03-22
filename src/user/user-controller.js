@@ -62,5 +62,11 @@ router.post('/:id/notifications', inUser, async (req, res) => {
       .catch(sendError(res))
 })
 
+router.put('/:id/filter', inUser, async (req, res) => {        
+    service.editFilter(req.params.id, req.body)
+      .then(() => res.status(HttpStatus.OK).send())
+      .catch(sendError(res))
+})
+
 
 module.exports = router

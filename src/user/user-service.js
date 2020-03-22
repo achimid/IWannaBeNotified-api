@@ -12,8 +12,11 @@ const associateTelegramUser = async (email, tUser) => UserModel.findOne({ email 
 
 const findById = (id) => UserModel.findById(id).select("-password")
 
+const editFilter = (_id, filter) => UserModel.update({ _id }, { $set: { filter } })
+
 module.exports = {
     addNotification,
     associateTelegramUser,
-    findById
+    findById,
+    editFilter
 }
