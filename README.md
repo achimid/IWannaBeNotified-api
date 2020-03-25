@@ -62,6 +62,7 @@ Algumas Idéias e Exemplos de utilização:
 * Criar uma API centralizadora de conteúdos de Pessoas famosas
 * Criar uma aplicação onde é possível cadastrar o valor desejado de um papel do mercado de ações e quando o papel atingir determinado valor, receber um aviso, executar uma compra/venda ou até mesmo um comando desejado
 * Criar um sistema que sempre que lançar os animes que você assiste em um site de sua escolha, efetuar o download do anime automaticamente
+* Criar um sistema para monitorar quando o resultado de um concurso for publicado
 
 
 ### API
