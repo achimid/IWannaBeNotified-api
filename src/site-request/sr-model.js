@@ -61,11 +61,7 @@ const schema = mongoose.Schema({
     userId: {
         type: mongoose.Schema.Types.ObjectId, ref: 'user'
     },
-    then: {
-        siteRequestId: {
-            type: mongoose.Schema.Types.ObjectId, ref: 'site-request'
-        }
-    },
+    then: [{ type: String }],
     notifications: [{ // Deve refletir o mesmo atributo em sr-mode.js
         
 		template: { type: String },
