@@ -14,7 +14,9 @@ const fetchHealthCheck = () => fetch(pingUrl)
 
 const init = () => {
     console.info('Iniciando job de healthcheck...')
-    schedule(fetchHealthCheck)
+    if (process.env.KEEP_UP != 'false') {
+        schedule(fetchHealthCheck)
+    }
 }
 
 module.exports = init
