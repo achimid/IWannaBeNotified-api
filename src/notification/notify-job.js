@@ -1,6 +1,5 @@
 const schedule = require('../utils/cron')
 const SiteRequestModel = require('../site-request/sr-model')
-const SiteExecutionModel = require('../site-execution/se-model')
 
 const executionService = require('../site-execution/se-service')
 
@@ -129,6 +128,16 @@ const createJobExecutions = (req) => {
     console.info(`Starting job for ${req.url} runing each ${req.options.hitTime} minute`)
     return schedule(() => executeSiteRequests(req), `*/${req.options.hitTime} * * * *`)
         .then((data) => jobs[req.id] = data)
+        .then(() => req)
+}
+
+const removeJobExecutions = (req) => {
+    const job = jobs[req.id]
+    job.stop()
+
+    delete jobs[req.id]
+
+    return req
 }
 
 const initJobsExecutions = () => {
@@ -149,4 +158,8 @@ const initJobsExecutions = () => {
 }
     
 
-module.exports = initJobsExecutions
+module.exports = {
+    initJobsExecutions,
+    createJobExecutions,
+    removeJobExecutions
+}
