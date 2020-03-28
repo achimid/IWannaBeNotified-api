@@ -108,6 +108,9 @@ const execute = async (req) => {
     return execution
 }
 
+const countHash = (req, exect) => SiteExecutionModel.countDocuments({url: req.url, hashTarget: req.lastExecution.hashTarget, _id: { $ne: exect._id}})
+
 module.exports = {
-    execute
+    execute,
+    countHash
 }
