@@ -18,23 +18,6 @@ const {
 } = require('../utils/commons')
 
 
-const parseUpdateData = (exect) => {
-    const updateData = { 
-        isSuccess: exect.isSuccess,
-        createdAt: exect.createdAt
-    }
-
-    if (exect.isSuccess) {
-        updateData.hashTarget = exect.hashTarget
-        updateData.extractedTarget = exect.extractedTarget
-        updateData.extractedContent = exect.extractedContent
-    } else {
-        updateData.errorMessage = exect.errorMessage
-    }
-    
-    return updateData    
-}
-
 const getNotifications = (site) => {
     if (site.notifications.length) return site.notifications
     if (site.userId && site.userId.notifications && site.userId.notifications.length) return site.userId.notifications
@@ -59,7 +42,7 @@ const notifyChannels = (site) => Promise.all(getNotifications(site).map(notf => 
 }))
 
 
-const executeSequencialRequest = async (req) => {
+const executeSequentialRequest = async (req) => {
     if (req.then.length == 0) return
 
     const reqTmp = req.toObject()
@@ -67,10 +50,10 @@ const executeSequencialRequest = async (req) => {
 
     const newReq = new SiteRequestModel(reqTmp)    
 
-    newReq.isTransient = true
+    if (!newReq.originalReq) newReq.originalReq = req
+
     newReq.url = getUrlsOnContent(req)[0]
-    newReq.scriptTarget = newReq.then.pop()
-    newReq.scriptContent = []
+    newReq.scriptTarget = newReq.then.pop()    
     newReq.scriptContent.push(newReq.scriptTarget)
 
     console.info('Executando Request sequencial...')
@@ -102,7 +85,7 @@ const validateAndNotify = async (req, exect) => {
         }
 
         if (req.then.length > 0 && hasUrlsOnContent(req)) {
-            executeSequencialRequest(req) // Async
+            executeSequentialRequest(req) // Async
         } else {
             notifyChannels(req) // Async
         }
@@ -111,16 +94,70 @@ const validateAndNotify = async (req, exect) => {
     }            
 }
 
+const saveReq = (req) => {
+    if (req.originalReq) {
+        req.originalReq.lastExecution = req.lastExecution
+        req.originalReq.save()
+    } else {
+        req.save()
+    }
+}
+
+const mergeLastExecution = (req, exect) => {
+    
+    const newLastExecution = { 
+        isSuccess: exect.isSuccess,
+        createdAt: exect.createdAt
+    }
+
+    if (exect.isSuccess) {
+        newLastExecution.hashTarget = exect.hashTarget
+        newLastExecution.extractedTarget = exect.extractedTarget
+
+
+        // Sequential Request
+        if (req.originalReq) {
+            
+            newLastExecution.scriptContent = []        
+            newLastExecution.extractedContent = []
+
+            // ===== União dos ScriptContent ===== 
+            if (req.lastExecution.scriptContent && req.lastExecution.scriptContent.length > 0)
+            newLastExecution.scriptContent.push(...req.lastExecution.scriptContent)
+
+            if (exect.scriptContent && exect.scriptContent.length > 0)
+                newLastExecution.scriptContent.push(...exect.scriptContent)
+            // ===== ===== ===== ===== ===== ===== 
+
+
+            // ===== União dos ExtractedContent ===== 
+            if (req.lastExecution.extractedContent && req.lastExecution.extractedContent.length > 0)
+                newLastExecution.extractedContent.push(...req.lastExecution.extractedContent)
+
+            if (exect.extractedContent && exect.extractedContent.length > 0)
+                newLastExecution.extractedContent.push(...exect.extractedContent)        
+            // ===== ===== ===== ===== ===== ===== 
+        } else {
+            newLastExecution.scriptContent = exect.scriptContent
+            newLastExecution.extractedContent = exect.extractedContent
+        }
+
+    } else {
+        newLastExecution.errorMessage = exect.errorMessage
+    }
+    
+    return Object.assign(req, { lastExecution: newLastExecution })
+}
+
 const executeSiteRequests = (req) => execute(req)
     .then(async (exect) => {
 
         const hashChanged = req.lastExecution.hashTarget != exect.hashTarget
-        Object.assign(req, { lastExecution: parseUpdateData(exect) })
+        mergeLastExecution(req, exect)
         req.lastExecution.hashChanged = hashChanged
-
-        validateAndNotify(req, exect)
-
-        if (!req.isTransient) req.save()    
+        
+        saveReq(req)
+        validateAndNotify(req, exect)        
     })
 
 const jobs = {}

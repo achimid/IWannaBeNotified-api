@@ -8,13 +8,20 @@ const toMD5 = (data) => crypto.createHash('md5').update(JSON.stringify({data})).
 
 const getExecutionTime = (startTime) => process.hrtime(startTime)[1] / 1000000 // 0 = seconds, 1 = milisseconds
 
+const promisseAllContinue = (artifact, item) => async () => {
+    try {
+        const result = await artifact.evaluate(item)
+        return Promise.resolve(result)
+    } catch (error) {
+        return Promise.resolve(undefined)
+    }                
+}
+
 const getPromissesEvaluation = (artifact, script) => {
     const promisses = []
 
     if (Array.isArray(script)) {
-        script.forEach(item => {
-            promisses.push(artifact.evaluate(item))
-        })        
+        script.forEach(item => promisses.push(promisseAllContinue(artifact, item)()))        
     } else {
         promisses.push(artifact.evaluate(script))
     }

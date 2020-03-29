@@ -33,9 +33,9 @@ const schema = mongoose.Schema({
         message: { 
             type: String
         },
-        scriptContent: { 
+        scriptContent: [{ 
             type: String
-        },
+        }],
         isSuccess: {
             type: Boolean
         },    
