@@ -48,7 +48,8 @@ const executeSequentialRequest = async (req) => {
     const reqTmp = req.toObject()
     delete reqTmp._id
 
-    const newReq = new SiteRequestModel(reqTmp)    
+    const newReq = new SiteRequestModel(reqTmp)
+    newReq.userId = req.userId
 
     if (!newReq.originalReq) newReq.originalReq = req
 
@@ -63,24 +64,28 @@ const executeSequentialRequest = async (req) => {
 
 
 const validateAndNotify = async (req, exect) => {
-    
+    const skipValidation = req.originalReq !== undefined
+
+
     try {
         if (!exect.isSuccess)
             throw 'Execution failed'
-            
-        if (req.options.onlyChanged && !req.lastExecution.hashChanged) 
-            throw 'Hash not changed'
+        
+        if (!skipValidation) {
+            if (req.options.onlyChanged && !req.lastExecution.hashChanged) 
+                throw 'Hash not changed'
 
-        if (req.options.onlyUnique) {
-            const isUnique = await executionService.countHash(req, exect) <= 0
-            if (!isUnique) throw 'Hash not unique'
-        }
+            if (req.options.onlyUnique) {
+                const isUnique = await executionService.countHash(req, exect) <= 0
+                if (!isUnique) throw 'Hash not unique'
+            }
 
-        const filter = getFiltersFromSiteRequest(req)
-        if (filter) {
-            const { words, threshold} = filter
-            if (!hasSimilarity(exect.extractedTarget, words, threshold)) {
-                throw 'Has no similarity with filters'
+            const filter = getFiltersFromSiteRequest(req)
+            if (filter) {
+                const { words, threshold} = filter
+                if (!hasSimilarity(exect.extractedTarget, words, threshold)) {
+                    throw 'Has no similarity with filters'
+                }
             }
         }
 
@@ -181,17 +186,17 @@ const initJobsExecutions = () => {
     if (process.env.ENABLE_JOB !== 'true') return
     console.info('Iniciando job de notificação...')
 
-    // return SiteRequestModel
-    //     .find({'options.isDependency': { $ne: true}})
-    //     .populate('userId').exec()    
-    //     .then(requests => requests.map(req => {
-    //         executeSiteRequests(req)            
-    //         createJobExecutions(req)
-    //     }))
+    return SiteRequestModel
+        .find({'options.isDependency': { $ne: true}})
+        .populate('userId').exec()    
+        .then(requests => requests.map(req => {
+            executeSiteRequests(req)            
+            createJobExecutions(req)
+        }))
 
-    return SiteRequestModel.findById('5e7f4a8d7523d0375b8bba0c')
-        .then(executeSiteRequests)
-        .catch(() => console.log('Erro ao inicializar SchedulesRequests'))
+    // return SiteRequestModel.findById('5e7f4a8d7523d0375b8bba0c')
+    //     .then(executeSiteRequests)
+    //     .catch(() => console.log('Erro ao inicializar SchedulesRequests'))
 }
     
 
