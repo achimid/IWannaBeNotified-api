@@ -30,10 +30,10 @@ const notifyChannels = (site) => Promise.all(getNotifications(site).map(notf => 
     if (notf.telegram.chat_id) {
         const message = templateFormat(site, notf.template)
         return TelegramDispatcher.notifyAll(message)
-    } else if (notf.email && notf.email.legth > 0) {
+    } else if (notf.email && notf.email.length > 0) {
         const message = templateFormat(site, notf.template)
         return EmailDispatcher.sendEMail(notf.email, message)
-    } else if (notf.webhook && notf.webhook.legth > 0) {
+    } else if (notf.webhook && notf.webhook.length > 0) {
         return WebHookDispatcher.send(notf.webhook, site)
     } if (notf.websocket) {
         return WebSocketDispacher.notifyWebSocket(site)
@@ -194,7 +194,7 @@ const initJobsExecutions = () => {
             createJobExecutions(req)
         }))
 
-    // return SiteRequestModel.findById('5e7f4a8d7523d0375b8bba0c')
+    // return SiteRequestModel.findById('5e6d7506bd6bf6001761ac38')
     //     .then(executeSiteRequests)
     //     .catch(() => console.log('Erro ao inicializar SchedulesRequests'))
 }
