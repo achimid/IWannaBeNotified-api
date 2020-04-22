@@ -90,7 +90,8 @@ const execute = async (req) => {
             throw `Inválid response target: ${url} ==> ${responseTarget}`
         }
 
-        responseTarget = responseTarget.trim()
+        if (typeof responseTarget === 'string' || responseTarget instanceof String)
+            responseTarget = responseTarget.trim()
 
         execution.isSuccess = true
         if (responseTarget) execution.extractedTarget = responseTarget
