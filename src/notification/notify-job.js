@@ -66,7 +66,6 @@ const executeSequentialRequest = async (req) => {
 const validateAndNotify = async (req, exect) => {
     const skipValidation = req.originalReq !== undefined
 
-
     try {
         if (!exect.isSuccess)
             throw 'Execution failed'
@@ -159,7 +158,9 @@ const executeSiteRequests = (req) => execute(req)
 
         const hashChanged = req.lastExecution.hashTarget != exect.hashTarget
         mergeLastExecution(req, exect)
-        req.lastExecution.hashChanged = hashChanged
+
+        const skip = req.originalReq !== undefined
+        if (!skip) req.lastExecution.hashChanged = hashChanged
         
         saveReq(req)
         validateAndNotify(req, exect)        
@@ -195,7 +196,13 @@ const initJobsExecutions = () => {
         }))
 
     // return SiteRequestModel.findById('5e6d7506bd6bf6001761ac38')
-    //     .then(executeSiteRequests)
+    //     .then((req) => {
+    //         console.log(req)
+    //         req.notifications[2].webhook[0].url = "http://localhost:9002/api/v1/subtitle/receive"
+    //         req.options.onlyChanged = true
+    //         req.options.onlyUnique = false
+    //         executeSiteRequests(req)
+    //     })
     //     .catch(() => console.log('Erro ao inicializar SchedulesRequests'))
 }
     
