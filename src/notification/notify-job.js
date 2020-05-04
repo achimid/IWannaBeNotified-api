@@ -115,13 +115,11 @@ const mergeLastExecution = (req, exect) => {
     }
 
     if (exect.isSuccess) {
-        newLastExecution.hashTarget = exect.hashTarget
         newLastExecution.extractedTarget = exect.extractedTarget
-
-
+                
         // Sequential Request
         if (req.originalReq) {
-            
+            newLastExecution.hashTarget = req.originalReq.hashTarget
             newLastExecution.scriptContent = []        
             newLastExecution.extractedContent = []
 
@@ -142,6 +140,7 @@ const mergeLastExecution = (req, exect) => {
                 newLastExecution.extractedContent.push(...exect.extractedContent)        
             // ===== ===== ===== ===== ===== ===== 
         } else {
+            newLastExecution.hashTarget = exect.hashTarget
             newLastExecution.scriptContent = exect.scriptContent
             newLastExecution.extractedContent = exect.extractedContent
         }
@@ -161,6 +160,7 @@ const executeSiteRequests = (req) => execute(req)
 
         const skip = req.originalReq !== undefined
         if (!skip) req.lastExecution.hashChanged = hashChanged
+        
         
         saveReq(req)
         validateAndNotify(req, exect)        
@@ -198,9 +198,31 @@ const initJobsExecutions = () => {
     // return SiteRequestModel.findById('5e6d7506bd6bf6001761ac38')
     //     .then((req) => {
     //         console.log(req)
+
+    //         // req.notifications.push({
+    //         //     webpush: {
+    //         //         url: "http://localhost:9002/api/v1/subtitle/receive",
+    //         //         method: "POST"
+    //         //     }
+    //         // })
+
+    //         // req.notifications.push({
+    //         //     email: ['achimid@hotmail.com'],
+    //         //     template: 'Olá, teste {0}'
+    //         // })
+
+    //         // req.notifications.push({
+    //         //     telegram: {
+    //         //         chat_id: "123",
+    //         //         bot_token: "123"
+    //         //     },
+    //         //     template: 'Olá, teste {0}'
+    //         // })
+
+    //         // req.save()
     //         req.notifications[2].webhook[0].url = "http://localhost:9002/api/v1/subtitle/receive"
-    //         req.options.onlyChanged = true
-    //         req.options.onlyUnique = false
+    //         // req.options.onlyChanged = true
+    //         // req.options.onlyUnique = false
     //         executeSiteRequests(req)
     //     })
     //     .catch(() => console.log('Erro ao inicializar SchedulesRequests'))
