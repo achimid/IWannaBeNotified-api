@@ -119,7 +119,7 @@ const mergeLastExecution = (req, exect) => {
                 
         // Sequential Request
         if (req.originalReq) {
-            newLastExecution.hashTarget = req.originalReq.hashTarget
+            newLastExecution.hashTarget = req.originalReq.lastExecution.hashTarget
             newLastExecution.scriptContent = []        
             newLastExecution.extractedContent = []
 
