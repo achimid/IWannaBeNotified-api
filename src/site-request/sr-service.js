@@ -1,6 +1,6 @@
 const SiteRequest = require('./sr-model')
-const serviceExecution = require('../site-execution/se-service')
-const { createJobExecutions, removeJobExecutions } = require('../notification/notify-job')
+// const serviceExecution = require('../site-execution/se-service')
+const { createJobExecutions, removeJobExecutions, executeSiteRequests } = require('../notification/notify-job')
 
 const validateExistsRequest = (req) => {
     if (!req) {
@@ -25,7 +25,7 @@ const findByQuery = (params) => SiteRequest.find(params).exec()
 
 const executeById = (id) => SiteRequest.findById(id)
     .then(validateExistsRequest)    
-    .then(serviceExecution.execute)
+    .then(executeSiteRequests)
 
     
 module.exports = {

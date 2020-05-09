@@ -232,5 +232,6 @@ const initJobsExecutions = () => {
 module.exports = {
     initJobsExecutions,
     createJobExecutions,
-    removeJobExecutions
+    removeJobExecutions,
+    executeSiteRequests
 }
