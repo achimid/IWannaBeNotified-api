@@ -89,10 +89,11 @@ const validateAndNotify = async (req, exect) => {
         }
 
         if (req.then.length > 0 && hasUrlsOnContent(req)) {
-            executeSequentialRequest(req) // Async
+            return executeSequentialRequest(req) // Async
         } else {
             notifyChannels(req) // Async
         }
+        return req
     } catch (error) {
         console.info('Notification not sent: ', error)
     }            
