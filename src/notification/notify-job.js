@@ -188,45 +188,45 @@ const initJobsExecutions = () => {
     if (process.env.ENABLE_JOB !== 'true') return
     console.info('Iniciando job de notificação...')
 
-    // return SiteRequestModel
-    //     .find({'options.isDependency': { $ne: true}})
-    //     .populate('userId').exec()    
-    //     .then(requests => requests.map(req => {
-    //         executeSiteRequests(req)            
-    //         createJobExecutions(req)
-    //     }))
+    return SiteRequestModel
+        .find({'options.isDependency': { $ne: true}})
+        .populate('userId').exec()    
+        .then(requests => requests.map(req => {
+            executeSiteRequests(req)            
+            createJobExecutions(req)
+        }))
 
-    return SiteRequestModel.findById('5e6d7506bd6bf6001761ac38')
-        .then((req) => {
-            console.log(req)
+    // return SiteRequestModel.findById('5e6d7506bd6bf6001761ac38')
+    //     .then((req) => {
+    //         console.log(req)
 
-            // req.notifications.push({
-            //     webpush: {
-            //         url: "http://localhost:9002/api/v1/subtitle/receive",
-            //         method: "POST"
-            //     }
-            // })
+    //         // req.notifications.push({
+    //         //     webpush: {
+    //         //         url: "http://localhost:9002/api/v1/subtitle/receive",
+    //         //         method: "POST"
+    //         //     }
+    //         // })
 
-            // req.notifications.push({
-            //     email: ['achimid@hotmail.com'],
-            //     template: 'Olá, teste {0}'
-            // })
+    //         // req.notifications.push({
+    //         //     email: ['achimid@hotmail.com'],
+    //         //     template: 'Olá, teste {0}'
+    //         // })
 
-            // req.notifications.push({
-            //     telegram: {
-            //         chat_id: "123",
-            //         bot_token: "123"
-            //     },
-            //     template: 'Olá, teste {0}'
-            // })
+    //         // req.notifications.push({
+    //         //     telegram: {
+    //         //         chat_id: "123",
+    //         //         bot_token: "123"
+    //         //     },
+    //         //     template: 'Olá, teste {0}'
+    //         // })
 
-            // req.save()
-            // req.notifications[2].webhook[0].url = "http://localhost:9002/api/v1/subtitle/receive"
-            // req.options.onlyChanged = true
-            // req.options.onlyUnique = false
-            executeSiteRequests(req)
-        })
-        .catch(() => console.log('Erro ao inicializar SchedulesRequests'))
+    //         // req.save()
+    //         req.notifications[2].webhook[0].url = "http://localhost:9002/api/v1/subtitle/receive"
+    //         req.options.onlyChanged = false
+    //         req.options.onlyUnique = false
+    //         executeSiteRequests(req)
+    //     })
+    //     .catch(() => console.log('Erro ao inicializar SchedulesRequests'))
 }
     
 
