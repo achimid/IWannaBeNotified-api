@@ -49,6 +49,10 @@ Algumas Idéias e Exemplos de utilização:
 
 * Gostaria de receber uma notificação no telegram sempre que surgir uma notícia ou um artigo sobre um determinado assunto.
 
+#### Exemplo de Utilização 5
+
+* Gostaria de fazer um histórico da pagina por meio de imagens/printscreens, a cada alteração.
+
 #### Idéias
 
 * Criar um sistema de monitoramento que verifica se o seu site ou API está em funcionamento (Health Check)

@@ -183,7 +183,9 @@ https: //horriblesubs.info {
         "waitTime": {
             "$numberInt": "0"
         },
-        "isDependency": false
+        "isDependency": false,
+        "printscreen": false,
+        "printscreenFullPage": false
     },
     "lastExecution": {
         "isSuccess": true,
@@ -201,6 +203,7 @@ https: //horriblesubs.info {
             "Fate Grand Order - Absolute Demonic Front Babylonia - 20",
             "Ishuzoku Reviewers - 10"
         ],
+        "printscreenLink": "https://i.imgur.com/7uTU7ev.png",        
         "hashChanged": false
     },
     "scriptContent": [
