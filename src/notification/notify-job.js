@@ -117,11 +117,11 @@ const mergeLastExecution = (req, exect) => {
 
     if (exect.isSuccess) {
         newLastExecution.extractedTarget = exect.extractedTarget
-        newLastExecution.printscreenLink = exect.printscreenLink
-                
+        
         // Sequential Request
-        if (req.originalReq) {
+        if (req.originalReq) {            
             newLastExecution.hashTarget = req.originalReq.lastExecution.hashTarget
+            newLastExecution.printscreenLink = req.originalReq.lastExecution.printscreenLink
             newLastExecution.scriptContent = []        
             newLastExecution.extractedContent = []
 
@@ -145,6 +145,7 @@ const mergeLastExecution = (req, exect) => {
             newLastExecution.hashTarget = exect.hashTarget
             newLastExecution.scriptContent = exect.scriptContent
             newLastExecution.extractedContent = exect.extractedContent
+            newLastExecution.printscreenLink = exect.printscreenLink
         }
 
     } else {
@@ -197,7 +198,7 @@ const initJobsExecutions = () => {
     //         createJobExecutions(req)
     //     }))
 
-    return SiteRequestModel.findById('5e6d7506bd6bf6001761ac38')
+    return SiteRequestModel.findById('5eb71ce9f65098001750bef0')
         .then((req) => {
             // console.log(req)
 
@@ -213,13 +214,13 @@ const initJobsExecutions = () => {
             //     template: 'Olá, teste {0}'
             // })
 
-            req.notifications.push({
-                telegram: {
-                    chat_id: "123",
-                    bot_token: "123"
-                },
-                template: 'Olá, teste {printscreenLink}'
-            })
+            // req.notifications.push({
+            //     telegram: {
+            //         chat_id: "123",
+            //         bot_token: "123"
+            //     },
+            //     template: 'Olá, teste {printscreenLink}'
+            // })
 
             // req.save()
             // req.notifications[2].webhook[0].url = "http://localhost:9002/api/v1/subtitle/receive"
