@@ -38,7 +38,10 @@ const schema = mongoose.Schema({
     },
     userId: {
         type: mongoose.Schema.Types.ObjectId, ref: 'user'
-    }
+    },
+    printscreenLink: {
+        type: String
+    },
 }, { versionKey: false, timestamps: true })
 
 const SiteExecution = mongoose.model("site-execution", schema)

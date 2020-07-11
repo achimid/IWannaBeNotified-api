@@ -2,7 +2,7 @@ const RandomHttpUserAgent = require('random-http-useragent')
 const SiteExecutionModel = require('./se-model')
 const crypto = require('crypto');
 const fetch = require('node-fetch');
-
+const ImagemUtils = require('../utils/imagem-util')
 
 const toMD5 = (data) => crypto.createHash('md5').update(JSON.stringify({data})).digest("hex")
 
@@ -92,6 +92,22 @@ const execute = async (req) => {
 
         if (typeof responseTarget === 'string' || responseTarget instanceof String)
             responseTarget = responseTarget.trim()
+        
+        if (options.printscreen || options.printscreenFullPage) {
+            const path = ImagemUtils.generateImageFilePathName()
+            
+            console.time('printscreenTime')
+            await page.screenshot({path, fullPage: options.printscreenFullPage})
+            console.timeEnd('printscreenTime')
+            
+            console.time('uploadImageTime')
+            const { link } = await ImagemUtils.uploadImage(path)
+            execution.printscreenLink = link
+
+            ImagemUtils.removeImageFileFileSystem(path)
+            console.timeEnd('uploadImageTime')
+        }
+        
 
         execution.isSuccess = true
         if (responseTarget) execution.extractedTarget = responseTarget

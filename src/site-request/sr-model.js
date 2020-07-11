@@ -28,6 +28,8 @@ const schema = mongoose.Schema({
         useJquery: {type: Boolean, default: process.env.OPTIONS_DEFAULT_USE_JQUERY},
         waitTime: {type: Number, default: process.env.OPTIONS_DEFAULT_WAIT_TIME},
         isDependency: {type: Boolean, default: process.env.OPTIONS_DEFAULT_IS_DEPENDENCY},
+        printscreen: {type: Boolean, default: process.env.OPTIONS_DEFAULT_PRINTSCREEN},
+        printscreenFullPage: {type: Boolean, default: process.env.OPTIONS_DEFAULT_PRINTSCREEN_FULL_PAGE},
     },
     lastExecution: {
         message: { 
@@ -52,6 +54,9 @@ const schema = mongoose.Schema({
             type: Object
         }],
         errorMessage: {
+            type: String
+        },
+        printscreenLink: {
             type: String
         },
         createdAt: {
