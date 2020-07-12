@@ -23,10 +23,15 @@ app.use(account())
 app.use(cors())
 app.disable('x-powered-by')
 
+// Front-End
+const maxAge = process.env.NODE_ENV == 'production' ? 7*86400000 : 0
+app.use(express.static('public', { maxAge, extensions:['html'] }))
+
 swagger.startup(app)
 
 routes(app)
 statup()
 errorHandler(app)
+
 
 server.listen(process.env.PORT)
