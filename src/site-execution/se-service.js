@@ -90,25 +90,20 @@ const execute = async (req) => {
             throw `Inválid response target: ${url} ==> ${responseTarget}`
         }
 
-        if (typeof responseTarget === 'string' || responseTarget instanceof String)
-            responseTarget = responseTarget.trim()
-        
         if (options.printscreen || options.printscreenFullPage) {
             const path = ImagemUtils.generateImageFilePathName()
             
-            console.time('printscreenTime')
             await page.screenshot({path, fullPage: options.printscreenFullPage})
-            console.timeEnd('printscreenTime')
             
-            console.time('uploadImageTime')
             const { link } = await ImagemUtils.uploadImage(path)
             execution.printscreenLink = link
-
-            ImagemUtils.removeImageFileFileSystem(path)
-            console.timeEnd('uploadImageTime')
+            
+            ImagemUtils.removeImageFileFileSystem(path)            
         }
         
-
+        if (typeof responseTarget === 'string' || responseTarget instanceof String)
+            responseTarget = responseTarget.trim()
+        
         execution.isSuccess = true
         if (responseTarget) execution.extractedTarget = responseTarget
         if (responseContent) execution.extractedContent = responseContent
