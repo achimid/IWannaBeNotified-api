@@ -95,10 +95,14 @@ const execute = async (req) => {
             
             await page.screenshot({path, fullPage: options.printscreenFullPage})
             
-            const { link } = await ImagemUtils.uploadImage(path)
-            execution.printscreenLink = link
-            
-            ImagemUtils.removeImageFileFileSystem(path)            
+            try {
+                const { link } = await ImagemUtils.uploadImage(path)
+                execution.printscreenLink = link
+                
+                ImagemUtils.removeImageFileFileSystem(path)                
+            } catch (error) {
+                console.error('Erro ao efetuar upload da imagem')
+            }
         }
         
         if (typeof responseTarget === 'string' || responseTarget instanceof String)
