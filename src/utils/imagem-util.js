@@ -5,8 +5,12 @@ imgur.setClientID(process.env.IMGUR_CLIENT_ID);
 
 const uploadImage = (filePath) => new Promise((resolve, reject) => {
     imgur.upload(filePath, (err, res) => {
-        if (err) return reject(err)
-        return resolve({link: res.data.link, res})
+        try {
+            if (err) return reject(err)
+            return resolve({link: res.data.link, res})            
+        } catch (err) {
+            return reject(err)            
+        }
     })
 }) 
 
